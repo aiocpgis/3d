@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="AI Prompt Studio من Effects Lab: اصنع برومبت إنتاجي مخصص لأي مشروع Frontend باستخدام Pollinations AI مع Local fallback." />
+  <meta name="description" content="AI Prompt Studio من Effects Lab: اصنع برومبت إنتاجي مخصص لأي مشروع Frontend مع تقييم الجودة والتحسين والتصدير والتاريخ." />
   <meta name="theme-color" content="#050816" />
   <title>AI Prompt Studio | Effects Lab</title>
   <link rel="canonical" href="https://aiocpgis.github.io/3d/studio.html" />
   <meta property="og:title" content="Effects Lab | AI Prompt Studio" />
-  <meta property="og:description" content="اصنع برومبت إنتاجي مخصص حسب نوع المشروع والتأثير والمكتبة والأداة المستهدفة." />
+  <meta property="og:description" content="اصنع برومبت إنتاجي مخصص، قيّمه، حسّنه، صدّره، واحفظه في History محلي." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://aiocpgis.github.io/3d/studio.html" />
   <link rel="stylesheet" href="assets/styles.css" />
   <link rel="stylesheet" href="assets/studio.css" />
+  <link rel="stylesheet" href="assets/prompt-tools.css" />
 </head>
 <body>
   <canvas class="space-canvas" data-particles></canvas>
@@ -27,9 +28,11 @@
       <nav class="nav-links" aria-label="القائمة الرئيسية">
         <a href="index.html">الرئيسية</a>
         <a class="active" href="studio.html">AI Studio</a>
+        <a href="compare.html">المقارنة</a>
+        <a href="packs.html">Prompt Packs</a>
+        <a href="history.html">History</a>
         <a href="recommendations.html">التوصيات</a>
         <a href="libraries.html">دليل المكتبات</a>
-        <a href="favorites.html">المفضلة</a>
       </nav>
     </div>
   </header>
@@ -38,11 +41,12 @@
     <section class="catalog-hero reveal show">
       <span class="eyebrow">🧪 AI Prompt Studio</span>
       <h1>اصنع برومبت إنتاجي مخصص لأي مشروع</h1>
-      <p class="lead">بدل التنقل بين صفحات كثيرة، اختر نوع المشروع والتأثير والمكتبة والأداة المستهدفة، ثم ولّد برومبت كامل عبر Pollinations AI مع Local fallback آمن.</p>
+      <p class="lead">اختر نوع المشروع والتأثير والمكتبة والأداة المستهدفة، ثم ولّد برومبت كامل عبر Pollinations AI، قيّمه، حسّنه، صدّره، واحفظه محليًا.</p>
       <div class="hero-actions">
         <a class="btn primary" href="#studioApp">ابدأ التوليد</a>
-        <a class="btn ghost" href="recommendations.html">التوصيات</a>
-        <a class="btn ghost" href="libraries.html">دليل المكتبات</a>
+        <a class="btn ghost" href="compare.html">قارن مكتبتين</a>
+        <a class="btn ghost" href="packs.html">Prompt Packs</a>
+        <a class="btn ghost" href="history.html">History</a>
       </div>
     </section>
 
@@ -53,5 +57,6 @@
   <script src="assets/app.js"></script>
   <script src="assets/library-data.js"></script>
   <script src="assets/studio.js"></script>
+  <script src="assets/prompt-tools.js"></script>
 </body>
 </html>
