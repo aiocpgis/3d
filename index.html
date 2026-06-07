@@ -6,6 +6,11 @@
   <meta name="description" content="منصة عربية مرجعية للمطورين تجمع برومبتات تأثيرات الويب الاحترافية ودليل مكتبات UI/CSS/Animation/3D." />
   <meta name="theme-color" content="#050816" />
   <title>Effects Lab | منصة برومبتات ومكتبات ويب للمطورين</title>
+  <link rel="canonical" href="https://aiocpgis.github.io/3d/" />
+  <meta property="og:title" content="Effects Lab | منصة برومبتات ومكتبات ويب للمطورين" />
+  <meta property="og:description" content="160 برومبت تأثير و226 مكتبة UI للمطورين مع بحث ووسوم ومفضلة محلية." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://aiocpgis.github.io/3d/" />
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
@@ -22,7 +27,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="hero">
       <div class="hero-grid">
         <div class="reveal">
@@ -31,8 +36,8 @@
           <p class="lead">بدل نسخ كود جامد، استخدم برومبتات احترافية جاهزة لتوليد التأثير داخل ChatGPT أو Cursor أو Claude أو v0 أو Bolt أو Lovable، مع دليل مكتبات CSS و React و Vue و Angular و Animation و 3D.</p>
           <div class="hero-actions">
             <a class="btn primary" href="scroll.html">ابدأ من برومبتات Scroll</a>
+            <a class="btn ghost" href="favorites.html">افتح المفضلة</a>
             <a class="btn ghost" href="libraries.html">افتح دليل المكتبات</a>
-            <a class="btn ghost" href="#libraries">استعرض صفحات البرومبتات</a>
           </div>
           <div class="stats">
             <div class="stat"><strong data-page-count>10</strong><span>صفحات برومبتات</span></div>
@@ -42,10 +47,26 @@
         </div>
         <div class="showcase reveal" aria-hidden="true">
           <div class="floating-card one fx-tilt"><div class="orb"></div><h3>Prompt Builder</h3><p>Build / Integrate / React / Optimize</p></div>
-          <div class="floating-card two fx-tilt"><h3>Libraries Guide</h3><p>CSS / React / Vue / Animation</p><div class="loader-bars"><span></span><span></span><span></span><span></span></div></div>
+          <div class="floating-card two fx-tilt"><h3>Favorites</h3><p>localStorage بدون Backend</p><div class="loader-bars"><span></span><span></span><span></span><span></span></div></div>
           <div class="floating-card three fx-tilt"><h3>AI Ready</h3><p>Cursor, Claude, v0, Bolt</p></div>
         </div>
       </div>
+    </section>
+
+    <section class="section reveal">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">⭐ Sprint 1</span>
+          <h2>بحث، وسوم، ومفضلة محلية</h2>
+        </div>
+        <p>تصفح البرومبتات بسرعة، فلتر حسب الوسوم، واحفظ البرومبتات المهمة على جهازك بدون تسجيل دخول.</p>
+      </div>
+      <a class="library-card prompt-link" href="favorites.html" style="display:block;min-height:170px">
+        <div class="icon">⭐</div>
+        <h3>افتح البرومبتات المحفوظة</h3>
+        <p>صفحة مفضلة محلية تحفظ اختياراتك باستخدام localStorage فقط، بدون Backend أو Database.</p>
+        <span class="badge">المفضلة ←</span>
+      </a>
     </section>
 
     <section class="section reveal">
@@ -78,5 +99,6 @@
 
   <footer class="footer">Effects Lab — منصة عربية لبرومبتات تأثيرات الويب ودليل مكتبات الواجهات.</footer>
   <script src="assets/app.js"></script>
+  <script src="assets/sprint1.js"></script>
 </body>
 </html>
