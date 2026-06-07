@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://aiocpgis.github.io/3d/</loc><priority>1.0</priority></url>
   <url><loc>https://aiocpgis.github.io/3d/studio.html</loc><priority>0.98</priority></url>
+  <url><loc>https://aiocpgis.github.io/3d/compare.html</loc><priority>0.96</priority></url>
+  <url><loc>https://aiocpgis.github.io/3d/packs.html</loc><priority>0.96</priority></url>
+  <url><loc>https://aiocpgis.github.io/3d/history.html</loc><priority>0.6</priority></url>
   <url><loc>https://aiocpgis.github.io/3d/recommendations.html</loc><priority>0.95</priority></url>
   <url><loc>https://aiocpgis.github.io/3d/scroll.html</loc><priority>0.9</priority></url>
   <url><loc>https://aiocpgis.github.io/3d/three-d.html</loc><priority>0.9</priority></url>
