@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://aiocpgis.github.io/3d/</loc><priority>1.0</priority></url>
+  <url><loc>https://aiocpgis.github.io/3d/scroll.html</loc><priority>0.9</priority></url>
+  <url><loc>https://aiocpgis.github.io/3d/three-d.html</loc><priority>0.9</priority></url>
+  <url><loc>https://aiocpgis.github.io/3d/hover.html</loc><priority>0.8</priority></url>
+  <url><loc>https://aiocpgis.github.io/3d/buttons.html</loc><priority>0.8</priority></url>
+  <url><loc>https://aiocpgis.github.io/3d/cards.html</loc><priority>0.8</priority></url>
+  <url><loc>https://aiocpgis.github.io/3d/text.html</loc><priority>0.8</priority></url>
+  <url><loc>https://aiocpgis.github.io/3d/loaders.html</loc><priority>0.7</priority></url>
+  <url><loc>https://aiocpgis.github.io/3d/backgrounds.html</loc><priority>0.8</priority></url>
+  <url><loc>https://aiocpgis.github.io/3d/images.html</loc><priority>0.7</priority></url>
+  <url><loc>https://aiocpgis.github.io/3d/navigation.html</loc><priority>0.8</priority></url>
+  <url><loc>https://aiocpgis.github.io/3d/libraries.html</loc><priority>0.9</priority></url>
+  <url><loc>https://aiocpgis.github.io/3d/favorites.html</loc><priority>0.5</priority></url>
+</urlset>
