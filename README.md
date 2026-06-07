@@ -1,22 +1,35 @@
-# Effects Lab - Arabic Web Effects & UI Libraries
+# Effects Lab - Arabic Developer Prompt & UI Libraries Platform
 
-موقع عربي متعدد الصفحات يحتوي على مكتبات تأثيرات ويب احترافية جاهزة للمعاينة والنسخ، مع دليل شامل لمكتبات وإطارات عمل الويب.
+منصة عربية مرجعية للمطورين تحتوي على برومبتات احترافية لتوليد تأثيرات الويب داخل أدوات الذكاء الاصطناعي، مع دليل شامل لمكتبات وإطارات عمل الويب.
+
+## الفكرة الجديدة
+
+بدل أن يكون الموقع مجرد معرض أكواد، أصبح منصة Prompt Library:
+
+- كل تأثير يحتوي Prompt احترافي جاهز للنسخ.
+- كل تأثير يحتوي 4 أنواع برومبت:
+  - Build from scratch
+  - Add to existing project
+  - React / Tailwind version
+  - Performance & accessibility
+- البرومبتات مناسبة للاستخدام مع ChatGPT و Cursor و Claude و v0 و Bolt و Lovable.
+- المعاينات البصرية بقيت موجودة حتى يفهم المستخدم شكل التأثير قبل نسخ البرومبت.
 
 ## الصفحات الموجودة
 
 - `index.html` الصفحة الرئيسية.
 - `libraries.html` دليل مكتبات وإطارات عمل الويب.
 - `library.html` صفحة تفاصيل ديناميكية لكل مكتبة عبر رابط مثل `library.html?name=Tailwind%20CSS`.
-- `scroll.html` مكتبة Scroll Animations.
-- `three-d.html` مكتبة 3D Animations.
-- `hover.html` مكتبة Hover Effects.
-- `buttons.html` مكتبة Button Effects.
-- `cards.html` مكتبة Card Effects.
-- `text.html` مكتبة Text Effects.
-- `loaders.html` مكتبة Loading Effects.
-- `backgrounds.html` مكتبة Background Effects.
-- `images.html` مكتبة Image Effects.
-- `navigation.html` مكتبة Navigation Effects.
+- `scroll.html` برومبتات Scroll Animations.
+- `three-d.html` برومبتات 3D Animations.
+- `hover.html` برومبتات Hover Effects.
+- `buttons.html` برومبتات Button Effects.
+- `cards.html` برومبتات Card Effects.
+- `text.html` برومبتات Text Effects.
+- `loaders.html` برومبتات Loading Effects.
+- `backgrounds.html` برومبتات Background Effects.
+- `images.html` برومبتات Image Effects.
+- `navigation.html` برومبتات Navigation Effects.
 
 ## دليل المكتبات
 
@@ -37,8 +50,9 @@
 ## الملفات المشتركة
 
 - `assets/styles.css` يحتوي التصميم العام وتخطيط الموقع.
-- `assets/generated-effects.css` يحتوي طبقة التأثيرات الحية.
-- `assets/app.js` يحتوي بيانات صفحات التأثيرات، توليد الصفحات، نسخ الكود، Scroll Reveal، Tilt، والجسيمات.
+- `assets/generated-effects.css` يحتوي طبقة المعاينات البصرية الحية.
+- `assets/prompt-platform.css` يحتوي تصميم واجهة البرومبتات وأزرار النسخ وأنواع البرومبت.
+- `assets/app.js` يحتوي بيانات صفحات البرومبتات، توليد البطاقات، توليد النصوص الاحترافية، النسخ، Scroll Reveal، Tilt، والجسيمات.
 - `assets/library-data.js` يحتوي بيانات كل المكتبات التي أرسلها المستخدم.
 - `assets/libraries.css` يحتوي تصميم دليل المكتبات.
 - `assets/libraries.js` يحتوي البحث، الفلترة، توليد بطاقات المكتبات، وروابط صفحات التفاصيل.
@@ -49,13 +63,13 @@
 ## المميزات
 
 - تصميم عربي RTL.
-- 10 صفحات تأثيرات.
-- 160 تأثير حي جاهز للمعاينة.
+- 10 صفحات برومبتات تأثيرات.
+- 160 تأثير مع Prompt احترافي.
+- 4 أنواع Prompt لكل تأثير.
+- زر Copy Professional Prompt لكل تأثير.
 - 226 مكتبة وإطار عمل مضافة داخل الموقع.
 - بحث وفلاتر داخل دليل المكتبات.
 - صفحة تفاصيل لكل مكتبة.
-- زر نسخ HTML لكل تأثير.
-- زر نسخ اسم المكتبة داخل الدليل وصفحة التفاصيل.
 - يعمل مباشرة على GitHub Pages.
 - Responsive للجوال والكمبيوتر.
 - لا يتم تحميل ملفات CDN لكل المكتبات دفعة واحدة حتى يبقى الموقع خفيفًا.
