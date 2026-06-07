@@ -1,113 +1,87 @@
 # Effects Lab - Arabic Developer Prompt & UI Libraries Platform
 
-منصة عربية مرجعية للمطورين تحتوي على AI Prompt Studio وبرومبتات احترافية لتوليد تأثيرات الويب داخل أدوات الذكاء الاصطناعي، مع دليل شامل لمكتبات وإطارات عمل الويب وتوصيات حسب نوع المشروع.
+منصة عربية مرجعية للمطورين تحتوي على AI Prompt Studio وبرومبتات احترافية لتوليد تأثيرات الويب داخل أدوات الذكاء الاصطناعي، مع دليل شامل لمكتبات وإطارات عمل الويب وتوصيات ومقارنات وحزم حسب نوع المشروع.
 
-## الفكرة الجديدة
+## الفكرة
 
-بدل أن يكون الموقع مجرد معرض أكواد، أصبح منصة Prompt Library:
+بدل أن يكون الموقع مجرد معرض أكواد، أصبح منصة Static Prompt Platform:
 
-- صفحة `studio.html` تعمل كـ AI Prompt Studio لصناعة برومبت إنتاجي مخصص لأي مشروع.
-- كل تأثير يحتوي Prompt احترافي جاهز للنسخ.
-- كل تأثير يدعم توليد برومبت حقيقي عبر Pollinations AI.
-- صفحات المكتبات والتوصيات تدعم توليد برومبتات مخصصة عبر Pollinations AI.
-- يوجد Local fallback prompt إذا فشل اتصال الذكاء الاصطناعي.
-- كل تأثير يحتوي 4 أنواع برومبت:
-  - Build from scratch
-  - Add to existing project
-  - React / Tailwind version
-  - Performance & accessibility
-- البرومبتات مناسبة للاستخدام مع ChatGPT و Cursor و Claude و v0 و Bolt و Lovable.
-- المعاينات البصرية بقيت موجودة حتى يفهم المستخدم شكل التأثير قبل نسخ البرومبت.
+- `studio.html` صفحة AI Prompt Studio لصناعة برومبت إنتاجي مخصص.
+- Prompt Quality Scoring لتقييم جودة البرومبت.
+- Improve Prompt لتحسين البرومبت عبر Pollinations AI.
+- Prompt History محلي باستخدام `localStorage`.
+- Export كـ TXT / MD / JSON.
+- Compare Libraries with AI لاختيار المكتبة الأنسب.
+- Prompt Packs جاهزة حسب نوع المشروع.
+- كل تأثير يدعم Pollinations AI مع Local fallback.
+- لا يوجد Backend أو Database أو Authentication.
 
-## AI Prompt Studio
+## الصفحات الأساسية
 
-تمت إضافة صفحة مركزية جديدة:
+- `index.html` الصفحة الرئيسية.
+- `studio.html` AI Prompt Studio.
+- `history.html` Prompt History محلي.
+- `compare.html` مقارنة مكتبات عبر AI.
+- `packs.html` حزم برومبتات جاهزة.
+- `favorites.html` المفضلة المحلية.
+- `recommendations.html` توصيات حسب نوع المشروع.
+- `libraries.html` دليل مكتبات وإطارات عمل الويب.
+- `library.html` صفحة تفاصيل ديناميكية لكل مكتبة.
+- صفحات البرومبتات: `scroll.html`, `three-d.html`, `hover.html`, `buttons.html`, `cards.html`, `text.html`, `loaders.html`, `backgrounds.html`, `images.html`, `navigation.html`.
 
-- `studio.html` صفحة توليد برومبتات مخصصة.
-- `assets/studio.css` تصميم صفحة Studio.
-- `assets/studio.js` منطق التوليد، Pollinations AI، Local fallback، التخزين المحلي، النسخ، والحفظ في المفضلة.
+## ميزات AI Prompt Studio
 
-تسمح الصفحة باختيار:
+- توليد برومبت عبر Pollinations AI.
+- Local fallback عند فشل الاتصال.
+- تقييم جودة البرومبت عبر مؤشرات:
+  - Clarity
+  - Specificity
+  - Production-readiness
+  - Security
+  - Actionability
+- تحسين البرومبت عبر زر Improve Prompt.
+- حفظ التوليدات في Prompt History.
+- تصدير البرومبت بصيغ TXT وMD وJSON.
+- حفظ البرومبت في المفضلة المحلية.
 
-- نوع المشروع.
-- الأداة المستهدفة: ChatGPT / Cursor / Claude / v0 / Bolt / Lovable / GitHub Copilot.
-- نوع الناتج: HTML/CSS/JS أو React أو Next.js أو Tailwind أو CSS فقط أو خطة معمارية أو Code Review Prompt.
-- وضع العمل: بناء من الصفر، إضافة لمشروع موجود، تحسين واجهة، تحويل كود، تحسين أداء ووصولية، أو Debug/Refactor.
-- تصنيف التأثير والتأثير المطلوب من بيانات الموقع الحالية.
-- مكتبة اختيارية من دليل المكتبات.
-- سياق إضافي من المستخدم.
+## Compare Libraries with AI
+
+صفحة `compare.html` تسمح باختيار مكتبتين من قاعدة بيانات المكتبات، ثم توليد مقارنة عملية حسب نوع المشروع. تشمل المقارنة:
+
+- السهولة.
+- الأداء.
+- حجم المشروع.
+- المرونة.
+- المجتمع.
+- متى تختار كل مكتبة.
+- القرار النهائي.
+
+## Prompt Packs
+
+صفحة `packs.html` تحتوي حزم جاهزة مثل:
+
+- Portfolio Pack
+- SaaS Pack
+- GIS Dashboard Pack
+- Landing Page Pack
+- Animation Pack
+- 3D Website Pack
+- Docs / Blog Pack
+
+كل Pack يحتوي مكتبات مقترحة، صفحات تأثيرات مناسبة، وبرومبت إنتاجي جاهز.
 
 ## AI Prompt Generator
 
-تمت إضافة طبقة AI حقيقية بدون Backend:
-
-- استخدام Pollinations AI لتوليد برومبت مخصص عند ضغط المستخدم فقط.
+- يستخدم Pollinations AI عند ضغط المستخدم فقط.
 - لا يوجد API key داخل الموقع.
 - لا يوجد Backend أو Database أو Authentication.
-- إذا فشل Pollinations AI، يستخدم الموقع البرومبت المحلي الاحتياطي.
-- يتم تخزين آخر نتائج AI في `localStorage` لتقليل الطلبات المتكررة.
+- إذا فشل Pollinations AI، يستخدم الموقع النص المحلي الاحتياطي.
+- يتم تخزين النتائج محليًا في `localStorage` لتقليل الطلبات المتكررة.
 - يتم عرض ناتج الذكاء الاصطناعي كنص فقط، وليس HTML مباشرًا.
-
-## Context AI للصفحات المرجعية
-
-تمت إضافة مرحلة AI ثانية لصفحات المكتبات والتوصيات:
-
-- `assets/context-ai.css` يحتوي تصميم لوحة توليد البرومبتات داخل صفحات المكتبات والتوصيات.
-- `assets/context-ai.js` يحتوي منطق Pollinations AI لهذه الصفحات.
-- صفحة `library.html` تستطيع توليد برومبت مخصص لاستخدام أي مكتبة.
-- صفحة `recommendations.html` تستطيع توليد برومبت مشروع مخصص حسب نوع المشروع.
-- النص المحلي الطويل أصبح fallback، بينما AI يولد النص النهائي عند الطلب.
-
-## Sprint 1
-
-تم تنفيذ أول Sprint كمنصة Static بدون Backend:
-
-- بحث داخل كل صفحة برومبتات.
-- فلترة بالوسوم Tags داخل صفحات التأثيرات.
-- حفظ البرومبتات في المفضلة باستخدام `localStorage`.
-- صفحة `favorites.html` لعرض البرومبتات المحفوظة.
-- تحسين SEO الأساسي عبر canonical و Open Graph للصفحات الأساسية.
-- إضافة `robots.txt` و `sitemap.xml`.
-- إضافة Skip Link ودعم أفضل لـ `prefers-reduced-motion`.
-
-## Sprint 2
-
-تم تنفيذ المرحلة الثانية بدون Backend أو Database:
-
-- ترقية صفحة تفاصيل كل مكتبة لتعرض:
-  - متى تستخدم المكتبة.
-  - متى تتجنبها.
-  - مستوى الصعوبة.
-  - أنواع المشاريع المناسبة.
-  - قرار سريع للاستخدام.
-  - مكتبات مشابهة.
-  - برومبتات جاهزة لاستخدام المكتبة.
-- إضافة صفحة `recommendations.html` لاختيار أفضل مكتبات وبرومبتات حسب نوع المشروع.
-- إضافة توصيات لمشاريع مثل Portfolio وLanding Page وDashboard وSaaS وGIS Dashboard وAnimation Website و3D Website وBlog.
-- تحديث الصفحة الرئيسية والـ Sitemap لربط صفحة التوصيات.
-
-## الصفحات الموجودة
-
-- `index.html` الصفحة الرئيسية.
-- `studio.html` صفحة AI Prompt Studio.
-- `favorites.html` صفحة المفضلة المحلية.
-- `recommendations.html` صفحة التوصيات حسب نوع المشروع.
-- `libraries.html` دليل مكتبات وإطارات عمل الويب.
-- `library.html` صفحة تفاصيل ديناميكية لكل مكتبة عبر رابط مثل `library.html?name=Tailwind%20CSS`.
-- `scroll.html` برومبتات Scroll Animations.
-- `three-d.html` برومبتات 3D Animations.
-- `hover.html` برومبتات Hover Effects.
-- `buttons.html` برومبتات Button Effects.
-- `cards.html` برومبتات Card Effects.
-- `text.html` برومبتات Text Effects.
-- `loaders.html` برومبتات Loading Effects.
-- `backgrounds.html` برومبتات Background Effects.
-- `images.html` برومبتات Image Effects.
-- `navigation.html` برومبتات Navigation Effects.
 
 ## دليل المكتبات
 
-تمت إضافة كل المكتبات التي أرسلها المستخدم داخل الموقع كبيانات قابلة للبحث والفلترة وصفحات تفاصيل. العدد الحالي: 226 مكتبة وإطار عمل موزعة على 11 تصنيفًا:
+تمت إضافة 226 مكتبة وإطار عمل موزعة على 11 تصنيفًا:
 
 - Core & Traditional CSS Frameworks
 - Classless CSS Libraries
@@ -123,51 +97,23 @@
 
 ## الملفات المشتركة
 
-- `assets/styles.css` يحتوي التصميم العام وتخطيط الموقع.
-- `assets/generated-effects.css` يحتوي طبقة المعاينات البصرية الحية.
-- `assets/prompt-platform.css` يحتوي تصميم واجهة البرومبتات وأزرار النسخ وأنواع البرومبت.
-- `assets/ai-prompt.css` يحتوي تصميم أزرار Pollinations AI وحالات التحميل والخطأ.
-- `assets/ai-prompt.js` يحتوي منطق Pollinations AI، التخزين المحلي، والـ Local fallback.
-- `assets/studio.css` يحتوي تصميم AI Prompt Studio.
-- `assets/studio.js` يحتوي منطق AI Prompt Studio.
-- `assets/context-ai.css` يحتوي تصميم AI داخل صفحات المكتبات والتوصيات.
-- `assets/context-ai.js` يحتوي منطق AI لصفحات المكتبات والتوصيات.
-- `assets/sprint1.css` يحتوي بحث البرومبتات، الوسوم، المفضلة، وتحسينات الوصولية.
-- `assets/app.js` يحتوي بيانات صفحات البرومبتات، توليد البطاقات، توليد النصوص الاحترافية، النسخ، Scroll Reveal، Tilt، والجسيمات.
-- `assets/sprint1.js` يحتوي منطق البحث، الفلترة، المفضلة المحلية، تحميل طبقة AI، وتوليد صفحة favorites.
-- `assets/library-data.js` يحتوي بيانات كل المكتبات التي أرسلها المستخدم.
-- `assets/libraries.css` يحتوي تصميم دليل المكتبات.
-- `assets/libraries.js` يحتوي البحث، الفلترة، توليد بطاقات المكتبات، وروابط صفحات التفاصيل.
-- `assets/library-detail.css` يحتوي تصميم صفحة تفاصيل المكتبة.
-- `assets/library-detail.js` يحتوي منطق صفحة تفاصيل المكتبة وبرومبتات المكتبات.
-- `assets/recommendations.css` يحتوي تصميم صفحة التوصيات.
-- `assets/recommendations.js` يحتوي بيانات ومنطق توصيات المشاريع.
-- `robots.txt` يحدد سياسة الفهرسة.
-- `sitemap.xml` يحتوي روابط الصفحات الثابتة.
+- `assets/styles.css` التصميم العام.
+- `assets/generated-effects.css` المعاينات البصرية.
+- `assets/prompt-platform.css` تصميم بطاقات البرومبت.
+- `assets/ai-prompt.css` و `assets/ai-prompt.js` توليد AI داخل صفحات التأثيرات.
+- `assets/studio.css` و `assets/studio.js` صفحة AI Prompt Studio.
+- `assets/prompt-tools.css` و `assets/prompt-tools.js` التقييم، التحسين، التاريخ، والتصدير.
+- `assets/history.js` منطق صفحة Prompt History.
+- `assets/compare.js` منطق مقارنة المكتبات.
+- `assets/packs.js` منطق Prompt Packs.
+- `assets/context-ai.css` و `assets/context-ai.js` توليد AI داخل صفحات المكتبات والتوصيات.
+- `assets/library-data.js` بيانات كل المكتبات.
+- `assets/libraries.css` و `assets/libraries.js` دليل المكتبات.
+- `assets/library-detail.css` و `assets/library-detail.js` صفحة تفاصيل المكتبة.
+- `assets/recommendations.css` و `assets/recommendations.js` توصيات المشاريع.
+- `assets/sprint1.css` و `assets/sprint1.js` البحث، الوسوم، المفضلة، وتحسينات الوصولية.
+- `robots.txt` و `sitemap.xml` للـ SEO الأساسي.
 - `.nojekyll` لضمان نشر الملفات كما هي على GitHub Pages.
-
-## المميزات
-
-- تصميم عربي RTL.
-- AI Prompt Studio مركزي لصناعة برومبتات مخصصة.
-- 10 صفحات برومبتات تأثيرات.
-- 160 تأثير مع Prompt احترافي.
-- توليد AI حقيقي عبر Pollinations AI.
-- Local fallback إذا فشل AI.
-- AI لصفحات التأثيرات والمكتبات والتوصيات.
-- 4 أنواع Prompt لكل تأثير.
-- بحث وفلترة Tags داخل صفحات البرومبتات.
-- صفحة مفضلة محلية بدون Backend.
-- زر Copy Prompt لكل تأثير.
-- 226 مكتبة وإطار عمل مضافة داخل الموقع.
-- بحث وفلاتر داخل دليل المكتبات.
-- صفحة تفاصيل لكل مكتبة.
-- برومبتات جاهزة لاستخدام كل مكتبة.
-- توصيات حسب نوع المشروع.
-- SEO أساسي للصفحات الرئيسية.
-- يعمل مباشرة على GitHub Pages.
-- Responsive للجوال والكمبيوتر.
-- لا يتم تحميل ملفات CDN لكل المكتبات دفعة واحدة حتى يبقى الموقع خفيفًا.
 
 ## التشغيل محليًا
 
