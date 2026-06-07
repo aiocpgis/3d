@@ -33,7 +33,7 @@
     <section class="catalog-hero reveal">
       <span class="eyebrow">🧠 <span data-category-total>11</span> تصنيف / <span data-library-total>226</span> مكتبة</span>
       <h1>دليل مكتبات وإطارات عمل الويب</h1>
-      <p class="lead">هذه الصفحة تجمع المكتبات التي طلبتها في مكان واحد قابل للبحث والفلترة: CSS Frameworks، Classless CSS، React، Vue، Angular، Svelte، Web Components، CSS-in-JS، Animation، 3D، وRetro Themes.</p>
+      <p class="lead">كل مكتبة من القائمة التي أرسلتها أصبحت داخل الموقع كبطاقة قابلة للبحث والفلترة، ولكل مكتبة صفحة تفاصيل خاصة بها.</p>
       <div class="hero-actions">
         <a class="btn primary" href="#catalog">ابدأ البحث</a>
         <a class="btn ghost" href="index.html">العودة لمكتبة التأثيرات</a>
@@ -63,20 +63,21 @@
           <span class="eyebrow">📦 المكتبات</span>
           <h2>كل الأسماء التي أرسلتها</h2>
         </div>
-        <p>كل بطاقة تحتوي اسم المكتبة وتصنيفها، ويمكن نسخ الاسم مباشرة.</p>
+        <p>كل بطاقة تحتوي زر فتح صفحة المكتبة، زر نسخ الاسم، وزر فلترة نفس التصنيف.</p>
       </div>
 
       <div class="empty-state" id="emptyState" hidden>لا توجد مكتبات مطابقة للبحث الحالي.</div>
       <div class="catalog-grid" id="librariesGrid"></div>
 
       <div class="catalog-note">
-        ملاحظة مهمة: لم أقم بتحميل كل هذه المكتبات داخل الموقع كملفات CDN، لأن ذلك سيجعل الموقع ثقيلًا جدًا. هذه الصفحة تعمل كدليل منظم، بينما صفحات التأثيرات الحالية تعرض أمثلة حية خفيفة بدون اعتماد خارجي.
+        تم إدخال كل المكتبات داخل الموقع كبيانات وصفحات تفاصيل. لم أحمّل ملفات CDN لكل مكتبة دفعة واحدة لأن ذلك سيجعل الموقع ثقيلًا جدًا وقد يكسر الأداء. التحميل الفعلي لأي مكتبة يجب أن يكون عند استخدامها في مشروع محدد فقط.
       </div>
     </section>
   </main>
 
   <footer class="footer">Effects Lab — مكتبة تأثيرات + دليل مكتبات Web UI.</footer>
   <script src="assets/app.js"></script>
+  <script src="assets/library-data.js"></script>
   <script src="assets/libraries.js"></script>
 </body>
 </html>
