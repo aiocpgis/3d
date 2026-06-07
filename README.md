@@ -1,29 +1,40 @@
-# Nova 3D - Arabic 3D Landing Page
+# Effects Lab - Arabic Web Effects Library
 
-موقع عربي جاهز بتأثيرات ثلاثية الأبعاد، مبني بـ HTML وCSS وJavaScript فقط.
+موقع عربي متعدد الصفحات يحتوي على مكتبات تأثيرات ويب جاهزة للمعاينة والنسخ.
+
+## الصفحات الموجودة
+
+- `index.html` الصفحة الرئيسية.
+- `scroll.html` مكتبة Scroll Animations.
+- `three-d.html` مكتبة 3D Animations.
+- `hover.html` مكتبة Hover Effects.
+- `buttons.html` مكتبة Button Effects.
+- `cards.html` مكتبة Card Effects.
+- `text.html` مكتبة Text Effects.
+- `loaders.html` مكتبة Loading Effects.
+- `backgrounds.html` مكتبة Background Effects.
+- `images.html` مكتبة Image Effects.
+- `navigation.html` مكتبة Navigation Effects.
+
+## الملفات المشتركة
+
+- `assets/styles.css` يحتوي التصميم وكل تأثيرات CSS.
+- `assets/app.js` يحتوي توليد صفحات التأثيرات، نسخ الكود، Scroll Reveal، تأثير Tilt، وخلفية الجسيمات.
+- `.nojekyll` لضمان نشر الملفات كما هي على GitHub Pages.
 
 ## المميزات
 
-- تصميم عربي كامل RTL.
+- تصميم عربي RTL.
+- 10 صفحات مكتبات.
+- 80 تأثير جاهز للمعاينة.
+- زر نسخ كود لكل تأثير.
+- بدون مكتبات خارجية.
+- يعمل مباشرة على GitHub Pages.
 - Responsive للجوال والكمبيوتر.
-- تأثير مكعب 3D متحرك.
-- بطاقات Tilt تفاعلية.
-- خلفية Canvas نجوم وجزيئات.
-- Scroll reveal عند ظهور الأقسام.
-- نموذج تواصل تجريبي مع تحقق بسيط.
-- بدون مكتبات خارجية أو اشتراكات.
 
-## طريقة التشغيل
+## التشغيل محليًا
 
-افتح ملف:
-
-```txt
-index.html
-```
-
-مباشرة في المتصفح.
-
-أو شغّل سيرفر محلي بسيط:
+افتح `index.html` مباشرة في المتصفح، أو شغّل سيرفر محلي:
 
 ```bash
 python -m http.server 8000
@@ -35,13 +46,8 @@ python -m http.server 8000
 http://localhost:8000
 ```
 
-## تعديل النصوص
+## رابط GitHub Pages المتوقع
 
-- النصوص والأقسام: `index.html`
-- الألوان والتصميم: `assets/css/styles.css`
-- الحركة والتفاعل: `assets/js/app.js`
-- الشعار: `assets/img/logo.svg`
-
-## ملاحظات مهمة
-
-النموذج لا يرسل بيانات فعليًا. هو واجهة فقط. يمكن ربطه لاحقًا بـ Supabase أو Firebase أو أي Backend.
+```txt
+https://aiocpgis.github.io/3d/
+```
