@@ -1,202 +1,50 @@
-const navItems=[['index.html','الرئيسية'],['scroll.html','Scroll'],['three-d.html','3D'],['hover.html','Hover'],['buttons.html','Buttons'],['cards.html','Cards'],['text.html','Text'],['loaders.html','Loaders'],['backgrounds.html','Backgrounds'],['images.html','Images'],['navigation.html','Navigation']];
+const navItems=[['index.html','الرئيسية'],['scroll.html','Scroll'],['three-d.html','3D'],['hover.html','Hover'],['buttons.html','Buttons'],['cards.html','Cards'],['text.html','Text'],['loaders.html','Loaders'],['backgrounds.html','Backgrounds'],['images.html','Images'],['navigation.html','Navigation'],['libraries.html','دليل المكتبات']];
 const pageFiles={scroll:'scroll.html',threeD:'three-d.html',hover:'hover.html',buttons:'buttons.html',cards:'cards.html',text:'text.html',loaders:'loaders.html',backgrounds:'backgrounds.html',images:'images.html',navigation:'navigation.html'};
-function extraCss(){if(document.querySelector('[data-generated-effects]'))return;const l=document.createElement('link');l.rel='stylesheet';l.href='assets/generated-effects.css';l.dataset.generatedEffects='true';document.head.appendChild(l)}
-const cube=()=>'<div class="cube3d"><span></span><span></span><span></span><span></span><span></span><span></span></div>';
-const card=(cls,t,s='Live demo')=>`<div class="fx-card ${cls}"><strong>${t}</strong><span>${s}</span></div>`;
-const row=html=>`<div class="fx-row">${html}</div>`;
-const panel=(cls,html='')=>`<div class="fx-panel ${cls}">${html}</div>`;
-const btn=(cls,t)=>`<button class="fx-live-btn ${cls}">${t}</button>`;
-const text=(cls,t)=>`<div class="text-live ${cls}">${t}</div>`;
-const img=(cls,inner='')=>`<div class="img-live ${cls}">${inner}</div>`;
-const E=(name,desc,html)=>({name,desc,html});
+function loadCss(href,flag){if(document.querySelector(`[${flag}]`))return;const l=document.createElement('link');l.rel='stylesheet';l.href=href;l.setAttribute(flag,'true');document.head.appendChild(l)}
+function extraCss(){loadCss('assets/generated-effects.css','data-generated-effects');loadCss('assets/prompt-platform.css','data-prompt-css')}
+const cube=()=>'<div class=\'cube3d\'><span></span><span></span><span></span><span></span><span></span><span></span></div>';
+const card=(cls,t,s='Prompt demo')=>`<div class='fx-card ${cls}'><strong>${t}</strong><span>${s}</span></div>`;
+const btn=(cls,t)=>`<button class='fx-live-btn ${cls}'>${t}</button>`;
+const text=(cls,t)=>`<div class='text-live ${cls}'>${t}</div>`;
+const img=(cls,inner='')=>`<div class='img-live ${cls}'>${inner}</div>`;
+const E=(name,desc,html,tags=[])=>({name,desc,html,tags});
 const PAGES={
- scroll:{icon:'🌀',title:'مكتبة Scroll Animations',desc:'تأثيرات ظهور وحركة مرتبطة بالتمرير، مناسبة لصفحات الهبوط، المقالات، الأقسام الطويلة، ومعارض الأعمال.',effects:[
-  E('Reveal Up','ظهور ناعم من الأسفل مثل صفحات الهبوط الحديثة',card('s-up','Reveal Up','Section entrance')),
-  E('Reveal Left','دخول من اليسار للعناصر النصية أو الصور',card('s-left','Reveal Left','Content block')),
-  E('Reveal Right','دخول من اليمين لعناصر المقارنة والميزات',card('s-right','Reveal Right','Feature card')),
-  E('Fade Sequence','تتابع ظهور متعدد للعناصر داخل القسم','<div class="stagger-live"><i></i><i></i><i></i><i></i></div>'),
-  E('Zoom In','تكبير خفيف عند ظهور العنصر',card('s-zoom','Zoom In','Gallery item')),
-  E('Rotate In','دخول مع دوران بسيط مناسب للبطاقات',card('s-rotate','Rotate In','Motion card')),
-  E('Parallax Layers','طبقات تتحرك بسرعات مختلفة لتعطي عمقًا','<div class="parallax-live"><i></i><i></i><i></i></div>'),
-  E('Reading Progress','شريط تقدم القراءة أعلى الصفحة','<div class="progress-live"><i></i></div>'),
-  E('Sticky Story','قسم ثابت بصريًا أثناء سرد المحتوى',card('s-pin','Sticky','Story section')),
-  E('Horizontal Scroll','محاكاة سكرول أفقي للمعارض','<div class="h-scroll-live"><i></i><i></i><i></i><i></i></div>'),
-  E('Timeline Reveal','خط زمني يظهر نقطة بعد نقطة','<div class="timeline-live"><i></i><i></i><i></i><i></i></div>'),
-  E('Pinned Card','بطاقة تبدو مثبتة داخل القسم',card('s-pin','Pinned Card','Scroll focus')),
-  E('Scale on Scroll','عنصر يكبر تدريجيًا مع الحركة',card('s-scale','Scale','Scroll motion')),
-  E('Split Text Reveal','كشف النص كسطور متتابعة','<div class="split-live"><i>Design better</i><i>Move smoother</i><i>Scroll smarter</i></div>'),
-  E('Counter Reveal','أرقام تظهر كإحصائية بارزة',card('s-zoom','98%','Performance feel')),
-  E('Section Snap Hint','تلميح انتقال بين أقسام كاملة','<div class="snap-live"><i></i><i></i><i></i></div>')
- ]},
- threeD:{icon:'🧊',title:'مكتبة 3D Animations',desc:'نماذج ثلاثية الأبعاد خفيفة مبنية بـ CSS Transform و Perspective، بدون مكتبات خارجية.',effects:[
-  E('Rotating Cube','مكعب CSS ثلاثي الأبعاد يدور باستمرار',cube()),
-  E('Flip Card 3D','بطاقة تنقلب حول محور Y عند المرور','<div class="flip-live"><b>Front</b><i>Back</i></div>'),
-  E('3D Carousel','شرائح تدور حول مركز واحد','<div class="carousel-live"><i style="--i:0">1</i><i style="--i:1">2</i><i style="--i:2">3</i><i style="--i:3">4</i><i style="--i:4">5</i><i style="--i:5">6</i></div>'),
-  E('Orbit System','مدارات ونقاط حول مركز مضيء','<div class="orbit-live"><i></i><b></b></div>'),
-  E('Phone Mockup','مجسم هاتف مائل لعرض تطبيق أو واجهة','<div class="phone-live"></div>'),
-  E('Laptop Mockup','مجسم لابتوب بسيط للـ SaaS والمنتجات','<div class="laptop-live"></div>'),
-  E('Book Cover','غلاف كتاب/ملف بتأثير منظور','<div class="book-live">PDF</div>'),
-  E('Layer Stack','طبقات مرفوعة بمحور Z','<div class="layers-live"><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i></div>'),
-  E('Dice Cube','نموذج مكعب مناسب للألعاب والتفاعل',cube()),
-  E('Isometric Tiles','بلاطات Isometric متحركة','<div class="iso-live"><i></i><i></i><i></i><i></i></div>'),
-  E('Hologram Card','بطاقة هولوجرامية بلمعان متحرك','<div class="holo-live">HOLO</div>'),
-  E('Fold Panel','لوحة مطوية بمنظور ثلاثي','<div class="flip-live"><b>Fold</b><i>Panel</i></div>'),
-  E('Floating Shapes','أشكال طافية في مساحة 3D',card('s-up','Floating','3D feel')),
-  E('Depth Button','زر بعمق وضغط ثلاثي','<button class="depth-live">3D Press</button>'),
-  E('Perspective Card','كرت يستجيب للماوس بمنظور حقيقي',card('fx-tilt','Tilt me','Move pointer')),
-  E('3D Ring','حلقة تدور بمحور X/Y','<div class="ring-live"></div>')
- ]},
- hover:{icon:'✨',title:'مكتبة Hover Effects',desc:'Micro-interactions احترافية عند مرور الماوس على الكروت، الروابط، الصور، والعناصر التفاعلية.',effects:[
-  E('Lift Hover','رفع الكرت مع ظل ناعم',card('hover-lift-live','Lift','Hover me')),
-  E('Glow Hover','توهج خارجي مناسب للأزرار والكروت',card('hover-glow-live','Glow','Hover me')),
-  E('Spotlight Hover','إضاءة داخلية تتبع الماوس',card('hover-spot-live fx-tilt','Spotlight','Move pointer')),
-  E('Underline Link','خط سفلي متحرك للروابط','<div class="link-live">رابط متحرك</div>'),
-  E('Border Draw','رسم الحدود عند المرور',card('hover-border-live','Border Draw','Hover me')),
-  E('Shine Sweep','لمعة تمر فوق العنصر',card('hover-shine-live','Shine','Hover me')),
-  E('Split Fill','امتلاء خلفية منقسمة',card('hover-split-live','Split Fill','Hover me')),
-  E('Skew Hover','ميلان سريع يعطي إحساس ديناميكي',card('hover-skew-live','Skew','Hover me')),
-  E('Icon Slide','أيقونة تدخل من الجانب','<div class="link-live">افتح المثال ←</div>'),
-  E('Blur Reveal','توضيح عنصر كان مغبشًا',card('hover-blur-live','Blur Reveal','Hover me')),
-  E('Magnetic Card','كرت يتفاعل مع حركة الماوس',card('fx-tilt','Magnetic','Move pointer')),
-  E('Color Shadow','ظل ملون يظهر عند المرور',card('color-shadow-live','Color Shadow','Hover me')),
-  E('Flip Hover','قلب عنصر بسيط عند المرور','<div class="flip-live"><b>Hover</b><i>Done</i></div>'),
-  E('Ripple Hover','موجة دائرية داخل العنصر',card('ripple-live','Ripple','Hover me')),
-  E('Arrow Link','سهم يتحرك مع الرابط','<div class="link-live">شاهد التفاصيل ←</div>'),
-  E('Neon Outline','حد نيون قوي عند المرور',card('neon-live','Neon','Hover me'))
- ]},
- buttons:{icon:'🔘',title:'مكتبة Button Effects',desc:'أزرار CTA حديثة بتأثيرات لمعان، نبض، حدود متحركة، ضغط، وسوائل.',effects:[
-  E('Gradient CTA','زر رئيسي بتدرج حديث',btn('b-gradient','ابدأ الآن')),
-  E('Glow Button','زر متوهج للنداء إلى الإجراء',btn('b-glow','CTA Glow')),
-  E('Shine Button','لمعة تمر فوق الزر',btn('b-shine','Shine')),
-  E('Border Run','حد متحرك حول الزر',btn('b-border','Border Run')),
-  E('Pulse Button','نبض مستمر لجذب الانتباه',btn('b-pulse','Pulse')),
-  E('Liquid Button','سائل يتحرك داخل الزر',btn('b-liquid','Liquid')),
-  E('3D Press','زر ينضغط بعمق واضح',btn('b-press','Press')),
-  E('Ghost Button','زر شفاف للمواقع الداكنة',btn('b-ghost','Ghost')),
-  E('Outline Fill','زر Outline يمتلئ عند المرور',btn('b-outline','Outline')),
-  E('Arrow Slide','سهم يتحرك داخل الزر',btn('b-gradient','التالي ←')),
-  E('Icon Reveal','إظهار أيقونة عند المرور',btn('b-shine','تحميل ↓')),
-  E('Neumorphic Button','زر ناعم بأسلوب Soft UI',btn('b-ghost','Soft UI')),
-  E('Glass Button','زر زجاجي بتغبيش',btn('b-ghost','Glass')),
-  E('Loading Button','زر يحتوي مؤشر تحميل','<button class="fx-live-btn b-loading"><i></i> جاري الحفظ</button>'),
-  E('Morph Button','زر يتغير شكله عند المرور',btn('b-morph','Morph')),
-  E('Social Button Stack','مجموعة أزرار صغيرة عائمة','<div class="fx-row social-live"><button>f</button><button>x</button><button>in</button></div>')
- ]},
- cards:{icon:'🃏',title:'مكتبة Card Effects',desc:'كروت حديثة للخدمات، المنتجات، التسعير، الملفات الشخصية، ولوحات التحكم.',effects:[
-  E('Glass Card','كرت زجاجي شائع في المواقع التقنية',card('glass-card','Glass','Backdrop blur')),
-  E('Gradient Border Card','كرت بحد متدرج متحرك',card('hover-border-live','Gradient Border','Animated border')),
-  E('Spotlight Card','إضاءة تتحرك داخل الكرت',card('hover-spot-live fx-tilt','Spotlight','Move pointer')),
-  E('Flip Card','كرت أمام/خلف ثلاثي الأبعاد','<div class="flip-live"><b>Front</b><i>Back</i></div>'),
-  E('Product Card','بطاقة منتج مع زر وسعر',card('hover-lift-live','Pro Widget','$29')),
-  E('Pricing Card','كرت تسعير SaaS شائع',card('hover-glow-live','Pro Plan','$19/mo')),
-  E('Profile Card','كرت ملف شخصي حديث',card('s-zoom','Designer','UI Motion')),
-  E('Stacked Card','كرت بطبقات خلفية','<div class="parallax-live"><i></i><i></i><i></i></div>'),
-  E('Testimonial Card','كرت رأي عميل',card('hover-lift-live','“تجربة أفضل”','Client quote')),
-  E('News Card Hover','كرت مقال مع حركة صورة',img('img-zoom-live','')),
-  E('Stats Card','بطاقة إحصائية للداشبورد',card('s-scale','+42%','Growth')),
-  E('Ribbon Card','كرت بوسم Featured',card('hover-shine-live','NEW','Featured')),
-  E('Dashboard Widget','ويدجت لوحة تحكم','<div class="stagger-live"><i></i><i></i><i></i><i></i></div>'),
-  E('Timeline Card','كرت خطوة داخل Timeline','<div class="timeline-live"><i></i><i></i><i></i><i></i></div>'),
-  E('Neumorphic Card','كرت Soft UI ناعم',card('color-shadow-live','Soft Card','Neumorphism')),
-  E('Expandable Preview','كرت يتمدد بصريًا عند المرور',card('hover-lift-live','Preview','Hover to expand'))
- ]},
- text:{icon:'🔤',title:'مكتبة Text Effects',desc:'تأثيرات عناوين ونصوص تستخدم بكثرة في Hero Sections والصفحات الإبداعية.',effects:[
-  E('Gradient Text','عنوان بتدرج لوني متحرك',text('t-gradient','Gradient')),
-  E('Typewriter','كتابة تدريجية شائعة في Hero',text('t-type','Web Effects Lab')),
-  E('Glitch Text','تأثير Glitch للواجهات التقنية',text('t-glitch','GLITCH')),
-  E('Neon Text','نص نيون مضيء',text('t-neon','NEON')),
-  E('Stroke Text','نص محدد بدون تعبئة',text('t-stroke','OUTLINE')),
-  E('Shimmer Text','لمعة تمر على النص',text('t-shimmer','Shimmer')),
-  E('Masked Text','نص بخلفية مقصوصة',text('t-gradient','MASK')),
-  E('Wave Letters','حروف تتحرك كموجة','<div class="text-live t-wave"><span style="--i:1">W</span><span style="--i:2">A</span><span style="--i:3">V</span><span style="--i:4">E</span></div>'),
-  E('Split Reveal Text','كشف سطور النص من الأسفل','<div class="split-live"><i>Build</i><i>Better</i><i>Motion</i></div>'),
-  E('Kinetic Text','نص يتحرك كعنوان إعلاني',text('t-gradient','FAST')),
-  E('3D Text','نص بظل عميق ثلاثي',text('t-3d','3D TEXT')),
-  E('Spotlight Text','إضاءة تتحرك فوق النص',text('t-shimmer','Spotlight')),
-  E('Underline Title','عنوان بخط سفلي متدرج','<div class="link-live">عنوان مهم</div>'),
-  E('Arabic Callout','نص عربي بارز بطريقة احترافية',text('t-gradient','تجربة بصرية أقوى')),
-  E('Counting Text','رقم إحصائي متحرك بصريًا',text('t-pop','+160')),
-  E('Hover Fill Text','نص يمتلئ عند المرور',text('t-fill','HOVER'))
- ]},
- loaders:{icon:'⏳',title:'مكتبة Loading Effects',desc:'لودرات CSS عملية للصفحات، العمليات، الجداول، البطاقات، وتجارب الانتظار.',effects:[
-  E('Classic Spinner','دائرة تحميل كلاسيكية','<div class="loader-spin-live"></div>'),
-  E('Dual Ring','حلقتان تدوران بسرعات مختلفة','<div class="loader-ring-live"></div>'),
-  E('Bouncing Dots','نقاط تقفز بتتابع','<div class="dots-live"><span></span><span></span><span></span></div>'),
-  E('Equalizer Bars','أعمدة صوتية متحركة','<div class="bars-live"><span></span><span></span><span></span><span></span></div>'),
-  E('Skeleton Card','تحميل هيكلي للمحتوى','<div class="skeleton-live"><i></i><i></i><i></i></div>'),
-  E('Striped Progress','شريط تقدم بخطوط متحركة','<div class="stripe-live"><i></i></div>'),
-  E('Cube Loader','مكعب تحميل ثلاثي',cube()),
-  E('Orbit Loader','نقاط تدور حول مركز','<div class="orbit-live"><i></i><b></b></div>'),
-  E('Ripple Loader','موجات دائرية متكررة','<div class="ripple-load-live"><i></i><i></i></div>'),
-  E('Typing Loader','مؤشر كتابة للرسائل','<div class="dots-live"><span></span><span></span><span></span></div>'),
-  E('Blob Morph','كتلة تتغير شكلها','<div class="blob-live"></div>'),
-  E('Infinity Loader','شكل لا نهائي مبسط','<div class="loader-ring-live"></div>'),
-  E('Radar Loader','رادار ماسح دائري','<div class="loader-spin-live"></div>'),
-  E('Pulse Square','مربع نابض للبطاقات',card('b-pulse','Pulse','Loading')),
-  E('Shimmer Lines','سطور تحميل بلمعة','<div class="skeleton-live"><i></i><i></i><i></i></div>'),
-  E('Battery Loader','بطارية تمتلئ تدريجيًا','<div class="battery-live"><i></i></div>')
- ]},
- backgrounds:{icon:'🌌',title:'مكتبة Background Effects',desc:'خلفيات متحركة وشائعة في المواقع التقنية وصفحات SaaS والواجهات الحديثة.',effects:[
-  E('Aurora Background','خلفية Aurora ناعمة للمواقع التقنية',panel('bg-aurora-live')),
-  E('Mesh Gradient','تدرج Mesh متعدد البؤر',panel('bg-mesh-live')),
-  E('Star Field','نجوم متحركة في الخلفية',panel('bg-stars-live')),
-  E('Moving Grid','شبكة تتحرك مثل صفحات SaaS',panel('bg-grid-live')),
-  E('Wave Background','موجات متحركة ناعمة',panel('bg-waves-live')),
-  E('Floating Blobs','أشكال Blob طافية',panel('bg-mesh-live')),
-  E('Radial Spotlight','إضاءة دائرية مركزة',panel('bg-aurora-live')),
-  E('Noise Glass','سطح زجاجي مع Noise خفيف',card('glass-card','Noise Glass','Backdrop')),
-  E('Diagonal Lines','خطوط قطرية تقنية',panel('bg-lines-live')),
-  E('Conic Gradient','تدرج Conic يدور',panel('bg-conic-live')),
-  E('Cyber Grid','شبكة Cyber مضيئة',panel('bg-grid-live')),
-  E('Sunset Gradient','تدرج غروب دافئ',panel('', '<div style="width:100%;height:100%;background:linear-gradient(135deg,#f97316,#e879f9,#38bdf8)"></div>')),
-  E('Dot Matrix','نقاط Matrix منظمة',panel('bg-dots-live')),
-  E('Floating Bubbles','فقاعات صاعدة للخلفيات الخفيفة',panel('bg-stars-live')),
-  E('Liquid Gradient','تدرج سائل متحرك',panel('bg-aurora-live')),
-  E('Animated Border Panel','لوحة بحد متحرك للخلفيات',card('hover-border-live','Animated Panel','Border'))
- ]},
- images:{icon:'🖼️',title:'مكتبة Image Effects',desc:'تأثيرات صور ومعارض شائعة: Zoom، Reveal، Overlay، Masks، Reflections، وCaptions.',effects:[
-  E('Image Zoom','تكبير الصورة عند المرور',img('img-zoom-live')),
-  E('Overlay Reveal','كشف عنوان فوق الصورة',img('img-caption-live','<span>Overlay</span>')),
-  E('Image Tilt','ميلان ثلاثي للصورة',img('fx-tilt')),
-  E('Grayscale to Color','تحويل من أبيض وأسود إلى ألوان',img('img-gray-live')),
-  E('Blur to Sharp','الصورة تتضح عند المرور',img('img-blur-live')),
-  E('Gradient Frame','إطار متدرج حول الصورة',img('img-frame-live')),
-  E('Circle Mask','قناع دائري للصورة',img('img-circle-live')),
-  E('Split Reveal','كشف الصورة بانقسام بصري',img('hover-shine-live')),
-  E('Spotlight Image','إضاءة فوق الصورة عند المرور',img('hover-spot-live fx-tilt')),
-  E('Photo Stack','مجموعة صور متراكبة','<div class="photo-stack-live"><i></i><i></i><i></i></div>'),
-  E('Polaroid','صورة بأسلوب بولارويد',img('hover-lift-live','<span style="position:relative;font-weight:900">Polaroid</span>')),
-  E('Glass Caption','تعليق زجاجي فوق الصورة',img('img-caption-live','<span>Glass Caption</span>')),
-  E('Diagonal Clip','قص قطري للصورة',img('', '<span style="position:relative;font-weight:900">Diagonal</span>')),
-  E('Masonry Tile','بلاطة معرض حديثة','<div class="stagger-live"><i></i><i></i><i></i><i></i></div>'),
-  E('Reflection','انعكاس بصري للصورة',img('hover-glow-live')),
-  E('Caption Slide','تعليق ينزلق من الأسفل',img('img-caption-live','<span>View Project</span>'))
- ]},
- navigation:{icon:'🧭',title:'مكتبة Navigation Effects',desc:'نماذج تنقل وقوائم وتبويبات مناسبة للمواقع الاحترافية ولوحات التحكم.',effects:[
-  E('Pill Nav','قائمة أزرار دائرية شائعة','<div class="nav-live pill-live"><span class="active">Home</span><span>Work</span><span>Contact</span></div>'),
-  E('Underline Nav','روابط بخط سفلي متحرك','<div class="nav-live under-live"><span>Features</span><span>Pricing</span><span>Docs</span></div>'),
-  E('Animated Tabs','تبويبات بحالة نشطة','<div class="nav-live tabs-live"><span class="active">الأول</span><span>الثاني</span><span>الثالث</span></div>'),
-  E('Glass Navbar','شريط تنقل زجاجي','<div class="nav-live glass-live"><b>Brand</b><span>Home</span><span>Work</span></div>'),
-  E('Side Menu','قائمة جانبية للداشبورد','<div class="side-live"><span class="active">Dashboard</span><span>Projects</span><span>Settings</span></div>'),
-  E('Breadcrumb','مسار تنقل واضح','<div class="nav-live"><span>الرئيسية</span><span>/</span><b>3D</b></div>'),
-  E('Floating Menu','قائمة عائمة مختصرة','<div class="nav-live float-live"><button>+</button><button>✦</button><button>↗</button></div>'),
-  E('Mega Menu Preview','معاينة قائمة Mega Menu',card('hover-lift-live','Mega Menu','Products grid')),
-  E('Hamburger Menu','أيقونة قائمة متحركة','<div class="hamb-live"><span></span><span></span><span></span></div>'),
-  E('Dock Menu','Dock سفلي مثل التطبيقات','<div class="nav-live dock-live"><span>🏠</span><span>🔎</span><span>⚙️</span><span>👤</span></div>'),
-  E('Stepper','مؤشر خطوات للعمليات','<div class="nav-live pill-live"><span class="active">1</span><span>2</span><span>3</span></div>'),
-  E('Pagination','ترقيم صفحات متحرك','<div class="nav-live pagination-live"><span>‹</span><b>1</b><span>2</span><span>3</span><span>›</span></div>'),
-  E('Command Palette','شريط أوامر سريع','<div class="search-live"><span>⌘</span><b>Search commands...</b></div>'),
-  E('Search Bar','حقل بحث حديث','<div class="search-live"><span>🔍</span><input value="web effects" aria-label="search" /></div>'),
-  E('Vertical Nav','تنقل رأسي للوحة التحكم','<div class="vertical-live"><span class="active">Overview</span><span>Reports</span><span>Team</span></div>'),
-  E('Bottom Mobile Nav','تنقل سفلي للجوال','<div class="nav-live bottom-live"><span>⌂</span><span>◉</span><span>☰</span></div>')
- ]}
+ scroll:{icon:'🌀',title:'Scroll Animation Prompts',desc:'برومبتات احترافية لبناء تأثيرات الظهور والتمرير داخل صفحات الهبوط والمقالات ومعارض الأعمال.',effects:[
+  E('Reveal Up','ظهور ناعم من الأسفل عند دخول العنصر الشاشة',card('s-up','Reveal Up','Scroll prompt'),['Intersection Observer','No library']),E('Reveal Left','دخول المحتوى من اليسار مع Fade',card('s-left','Reveal Left','Content block'),['Scroll','Stagger']),E('Reveal Right','دخول المحتوى من اليمين للعناصر المقارنة',card('s-right','Reveal Right','Feature card'),['Responsive']),E('Fade Sequence','ظهور متتابع لمجموعة عناصر','<div class=\'stagger-live\'><i></i><i></i><i></i><i></i></div>',['Stagger']),E('Zoom In','تكبير خفيف عند الظهور',card('s-zoom','Zoom In','Gallery item'),['Gallery']),E('Rotate In','دخول مع دوران بسيط',card('s-rotate','Rotate In','Motion card'),['CSS transform']),E('Parallax Layers','طبقات عمق تتحرك بسرعات مختلفة','<div class=\'parallax-live\'><i></i><i></i><i></i></div>',['Parallax']),E('Reading Progress','شريط تقدم قراءة الصفحة','<div class=\'progress-live\'><i></i></div>',['UX']),E('Sticky Story','قسم سردي ثابت أثناء التمرير',card('s-pin','Sticky','Story section'),['Storytelling']),E('Horizontal Scroll','معرض يتحرك أفقيًا أثناء التمرير','<div class=\'h-scroll-live\'><i></i><i></i><i></i><i></i></div>',['Gallery']),E('Timeline Reveal','خط زمني يظهر نقطة بعد نقطة','<div class=\'timeline-live\'><i></i><i></i><i></i><i></i></div>',['Timeline']),E('Pinned Card','بطاقة مثبتة بصريًا داخل القسم',card('s-pin','Pinned Card','Scroll focus'),['Pinned']),E('Scale on Scroll','تكبير تدريجي للعنصر أثناء السكرول',card('s-scale','Scale','Scroll motion'),['Scale']),E('Split Text Reveal','كشف النص كسطور متتابعة','<div class=\'split-live\'><i>Design better</i><i>Move smoother</i><i>Scroll smarter</i></div>',['Text']),E('Counter Reveal','إظهار أرقام وإحصائيات عند الوصول',card('s-zoom','98%','Stats'),['Counter']),E('Section Snap Hint','تلميح انتقال بين أقسام كاملة','<div class=\'snap-live\'><i></i><i></i><i></i></div>',['Snap'])]},
+ threeD:{icon:'🧊',title:'3D Animation Prompts',desc:'برومبتات لبناء مؤثرات 3D خفيفة بـ CSS أو Three.js/R3F حسب الحاجة.',effects:[
+  E('Rotating Cube','مكعب ثلاثي الأبعاد يدور باستمرار',cube(),['CSS 3D']),E('Flip Card 3D','بطاقة تنقلب حول محور Y','<div class=\'flip-live\'><b>Front</b><i>Back</i></div>',['Card']),E('3D Carousel','شرائح تدور حول مركز واحد','<div class=\'carousel-live\'><i style=\'--i:0\'>1</i><i style=\'--i:1\'>2</i><i style=\'--i:2\'>3</i><i style=\'--i:3\'>4</i><i style=\'--i:4\'>5</i><i style=\'--i:5\'>6</i></div>',['Carousel']),E('Orbit System','مدارات ونقاط حول مركز مضيء','<div class=\'orbit-live\'><i></i><b></b></div>',['Orbit']),E('Phone Mockup','مجسم هاتف لعرض تطبيق', '<div class=\'phone-live\'></div>',['Mockup']),E('Laptop Mockup','مجسم لابتوب للمنتجات الرقمية','<div class=\'laptop-live\'></div>',['SaaS']),E('Book Cover','غلاف كتاب أو ملف بمنظور','<div class=\'book-live\'>PDF</div>',['Perspective']),E('Layer Stack','طبقات مرفوعة بمحور Z','<div class=\'layers-live\'><i style=\'--i:1\'></i><i style=\'--i:2\'></i><i style=\'--i:3\'></i><i style=\'--i:4\'></i></div>',['Depth']),E('Dice Cube','مكعب ألعاب تفاعلي',cube(),['Game UI']),E('Isometric Tiles','بلاطات Isometric متحركة','<div class=\'iso-live\'><i></i><i></i><i></i><i></i></div>',['Isometric']),E('Hologram Card','كرت هولوجرام بلمعان','<div class=\'holo-live\'>HOLO</div>',['Hologram']),E('Fold Panel','لوحة مطوية بمنظور','<div class=\'flip-live\'><b>Fold</b><i>Panel</i></div>',['Fold']),E('Floating Shapes','أشكال طافية في مساحة 3D',card('s-up','Floating','3D feel'),['Hero']),E('Depth Button','زر بعمق وضغط ثلاثي','<button class=\'depth-live\'>3D Press</button>',['Button']),E('Perspective Card','كرت يستجيب للماوس بمنظور',card('fx-tilt','Tilt me','Move pointer'),['Mouse']),E('3D Ring','حلقة تدور بمحور X/Y','<div class=\'ring-live\'></div>',['Ring'])]},
+ hover:{icon:'✨',title:'Hover Interaction Prompts',desc:'برومبتات Micro-interactions عند مرور الماوس على الكروت والروابط والصور.',effects:[
+  E('Lift Hover','رفع الكرت مع ظل ناعم',card('hover-lift-live','Lift','Hover me'),['Card']),E('Glow Hover','توهج خارجي للعناصر',card('hover-glow-live','Glow','Hover me'),['Glow']),E('Spotlight Hover','إضاءة داخلية تتبع المؤشر',card('hover-spot-live fx-tilt','Spotlight','Move pointer'),['Mouse']),E('Underline Link','خط سفلي متحرك للروابط','<div class=\'link-live\'>رابط متحرك</div>',['Link']),E('Border Draw','رسم الحدود عند المرور',card('hover-border-live','Border Draw','Hover me'),['Border']),E('Shine Sweep','لمعة تمر فوق العنصر',card('hover-shine-live','Shine','Hover me'),['Shine']),E('Split Fill','امتلاء خلفية منقسمة',card('hover-split-live','Split Fill','Hover me'),['Fill']),E('Skew Hover','ميلان سريع ديناميكي',card('hover-skew-live','Skew','Hover me'),['Transform']),E('Icon Slide','أيقونة تدخل من الجانب','<div class=\'link-live\'>افتح المثال ←</div>',['Icon']),E('Blur Reveal','توضيح عنصر كان مغبشًا',card('hover-blur-live','Blur Reveal','Hover me'),['Blur']),E('Magnetic Card','كرت يتفاعل مع حركة الماوس',card('fx-tilt','Magnetic','Move pointer'),['Magnetic']),E('Color Shadow','ظل ملون عند المرور',card('color-shadow-live','Color Shadow','Hover me'),['Shadow']),E('Flip Hover','قلب عنصر عند المرور','<div class=\'flip-live\'><b>Hover</b><i>Done</i></div>',['Flip']),E('Ripple Hover','موجة دائرية داخل العنصر',card('ripple-live','Ripple','Hover me'),['Ripple']),E('Arrow Link','سهم يتحرك مع الرابط','<div class=\'link-live\'>شاهد التفاصيل ←</div>',['CTA']),E('Neon Outline','حد نيون قوي عند المرور',card('neon-live','Neon','Hover me'),['Neon'])]},
+ buttons:{icon:'🔘',title:'Button Prompt Library',desc:'برومبتات أزرار CTA احترافية مناسبة للهبوط والداشبورد والتطبيقات.',effects:[
+  E('Gradient CTA','زر رئيسي بتدرج حديث',btn('b-gradient','ابدأ الآن'),['CTA']),E('Glow Button','زر متوهج للنداء إلى الإجراء',btn('b-glow','CTA Glow'),['Glow']),E('Shine Button','لمعة تمر فوق الزر',btn('b-shine','Shine'),['Shine']),E('Border Run','حد متحرك حول الزر',btn('b-border','Border Run'),['Border']),E('Pulse Button','نبض مستمر لجذب الانتباه',btn('b-pulse','Pulse'),['Pulse']),E('Liquid Button','سائل يتحرك داخل الزر',btn('b-liquid','Liquid'),['Liquid']),E('3D Press','زر ينضغط بعمق واضح',btn('b-press','Press'),['3D']),E('Ghost Button','زر شفاف للمواقع الداكنة',btn('b-ghost','Ghost'),['Dark UI']),E('Outline Fill','زر Outline يمتلئ عند المرور',btn('b-outline','Outline'),['Outline']),E('Arrow Slide','سهم يتحرك داخل الزر',btn('b-gradient','التالي ←'),['Arrow']),E('Icon Reveal','إظهار أيقونة عند المرور',btn('b-shine','تحميل ↓'),['Icon']),E('Neumorphic Button','زر ناعم بأسلوب Soft UI',btn('b-ghost','Soft UI'),['Soft UI']),E('Glass Button','زر زجاجي بتغبيش',btn('b-ghost','Glass'),['Glass']),E('Danger Button','زر تحذيري واضح وآمن',btn('b-border','Delete'),['Danger']),E('Success Button','زر تأكيد إيجابي',btn('b-gradient','Confirm'),['Success']),E('Loading Button','زر يعرض حالة تحميل',btn('b-pulse','Loading...'),['State'])]},
+ cards:{icon:'🃏',title:'Card UI Prompt Library',desc:'برومبتات لإنشاء بطاقات منتجات، خدمات، تسعير، Glassmorphism وFlip Cards.',effects:[
+  E('Glass Card','كرت زجاجي بتغبيش وخلفية شفافة',card('glass-card-live','Glass Card','Blurred UI'),['Glass']),E('Pricing Card','بطاقة أسعار SaaS واضحة',card('hover-lift-live','Pro Plan','$19/mo'),['Pricing']),E('Product Card','بطاقة منتج مع CTA',card('hover-shine-live','Product','Buy now'),['Ecommerce']),E('Profile Card','بطاقة بروفايل شخصية',card('hover-glow-live','مهند','GIS Developer'),['Profile']),E('Feature Card','بطاقة ميزة قصيرة',card('s-up','Fast','Feature'),['Feature']),E('Stats Card','بطاقة إحصائية',card('s-zoom','24K','Users'),['Stats']),E('Flip Card','بطاقة بوجهين', '<div class=\'flip-live\'><b>Info</b><i>More</i></div>',['Flip']),E('Tilt Card','بطاقة Tilt تستجيب للماوس',card('fx-tilt','Tilt','Move pointer'),['Tilt']),E('Blog Card','بطاقة مقال حديثة',card('hover-border-live','Article','Read more'),['Blog']),E('Testimonial Card','بطاقة رأي عميل',card('glass-card-live','Great work','★★★★★'),['Testimonial']),E('Service Card','بطاقة خدمة',card('hover-lift-live','Service','Learn more'),['Service']),E('Gradient Card','بطاقة بتدرج لوني',card('hover-glow-live','Gradient','Visual'),['Gradient']),E('Notification Card','بطاقة تنبيه داخل التطبيق',card('s-left','New Message','Now'),['App UI']),E('Dashboard Card','كرت لوحة تحكم',card('s-scale','Revenue','+18%'),['Dashboard']),E('Mini App Card','بطاقة تطبيق مصغرة',card('s-right','Weather','25°C'),['Widget']),E('Layered Card','بطاقة بطبقات عمق',card('s-pin','Layered','Depth'),['Depth'])]},
+ text:{icon:'✍️',title:'Text Effect Prompt Library',desc:'برومبتات للنصوص المتحركة، العناوين الجذابة، Glitch، Typewriter وGradient Text.',effects:[
+  E('Gradient Text','عنوان بتدرج لوني احترافي',text('t-gradient','Gradient Text'),['Heading']),E('Typewriter','كتابة متدرجة كآلة كاتبة',text('t-type','Typing effect'),['Typewriter']),E('Glitch Text','تأثير Glitch سايبربنك',text('t-glitch','GLITCH'),['Glitch']),E('Neon Text','نص نيون مضيء',text('t-neon','NEON'),['Neon']),E('Marquee Text','شريط نصي متحرك',text('t-marquee','Moving headline'),['Marquee']),E('Split Heading','عنوان مقسم بأسطر تظهر بالتتابع','<div class=\'split-live\'><i>Build</i><i>Better</i><i>Interfaces</i></div>',['Split']),E('Masked Text','نص بقناع صورة أو تدرج',text('t-gradient','Masked Text'),['Mask']),E('Outline Text','نص بحد خارجي',text('t-outline','OUTLINE'),['Outline']),E('Kinetic Type','حركة Typographic قوية',text('t-glitch','KINETIC'),['Motion']),E('Counter Text','أرقام تتحرك للعد',text('t-gradient','10,000+'),['Counter']),E('Word Reveal','كشف الكلمات بالتتابع',text('t-type','Word by word'),['Reveal']),E('Hover Text','نص يتغير عند المرور',text('t-neon','Hover me'),['Hover']),E('Hero Title','عنوان Hero كبير ومتوازن',text('t-gradient','Launch Faster'),['Hero']),E('Subtle Caption','نص ثانوي متحرك بخفة',text('t-outline','caption'),['Caption']),E('Arabic Headline','عنوان عربي متدرج',text('t-gradient','واجهة احترافية'),['Arabic']),E('SVG Stroke Text','رسم حدود النص كـ SVG',text('t-outline','STROKE'),['SVG'])]},
+ loaders:{icon:'⏳',title:'Loading UI Prompt Library',desc:'برومبتات Loading indicators، Skeleton screens، Progress bars وحالات الانتظار.',effects:[
+  E('Spinner Loader','دوار تحميل كلاسيكي','<div class=\'loader-spin\'></div>',['Spinner']),E('Dots Loader','نقاط تقفز بالتتابع','<div class=\'loader-dots\'><i></i><i></i><i></i></div>',['Dots']),E('Bars Loader','أعمدة تتحرك كموجة','<div class=\'loader-bars\'><span></span><span></span><span></span><span></span></div>',['Bars']),E('Pulse Loader','نبض دائري ناعم',card('b-pulse','Loading','Please wait'),['Pulse']),E('Skeleton Card','هيكل تحميل لكرت محتوى',card('s-pin','Skeleton','Content loading'),['Skeleton']),E('Progress Bar','شريط تقدم أفقي','<div class=\'progress-live\'><i></i></div>',['Progress']),E('Circular Progress','تقدم دائري','<div class=\'ring-live\'></div>',['Circle']),E('Page Loader','لودر صفحة كاملة',card('s-zoom','Loading page','0% → 100%'),['Page']),E('Button Loading','حالة تحميل داخل زر',btn('b-pulse','Saving...'),['Button']),E('Upload Progress','شريط رفع ملفات','<div class=\'progress-live\'><i></i></div>',['Upload']),E('Shimmer Loader','لمعة Skeleton','<div class=\'holo-live\'>SHIMMER</div>',['Shimmer']),E('Step Loader','تحميل على مراحل','<div class=\'timeline-live\'><i></i><i></i><i></i></div>',['Steps']),E('Logo Loader','لودر شعار متحرك',card('s-rotate','FX','Loading'),['Brand']),E('Card Placeholder','Placeholder لكروت الشبكة',card('glass-card-live','Loading','Card UI'),['Cards']),E('AI Thinking Loader','حالة تفكير AI',card('s-up','Thinking...','AI agent'),['AI']),E('Success Transition','تحول من تحميل إلى نجاح',card('s-scale','Done','Saved'),['State'])]},
+ backgrounds:{icon:'🌌',title:'Background Prompt Library',desc:'برومبتات خلفيات تفاعلية: Mesh gradient، Particles، Stars، Aurora، Grid وNoise.',effects:[
+  E('Particle Background','جسيمات خفيفة في الخلفية','<div class=\'bg-live particles\'></div>',['Particles']),E('Star Field','نجوم متحركة للمواقع التقنية','<div class=\'bg-live stars\'></div>',['Stars']),E('Aurora Background','خلفية Aurora ناعمة','<div class=\'bg-live aurora\'></div>',['Aurora']),E('Mesh Gradient','تدرج شبكي حديث','<div class=\'bg-live mesh\'></div>',['Mesh']),E('Animated Grid','شبكة تقنية متحركة','<div class=\'bg-live grid\'></div>',['Grid']),E('Noise Texture','طبقة Noise راقية',card('glass-card-live','Noise','Texture'),['Noise']),E('Blob Background','Blobs متحركة',card('s-zoom','Blob','Background'),['Blob']),E('Waves Background','موجات SVG أو CSS',card('s-left','Waves','Flow'),['Wave']),E('Gradient Orbs','كرات ضوئية خلفية',card('s-up','Orbs','Glow'),['Orbs']),E('Cyber Grid','شبكة سايبربنك',card('neon-live','Cyber','Grid'),['Cyber']),E('Glass Background','خلفية Glassmorphism',card('glass-card-live','Glass','Layer'),['Glass']),E('Retro Background','خلفية Retro Grid',card('s-rotate','Retro','80s'),['Retro']),E('Spotlight Background','إضاءة Spotlight',card('hover-spot-live','Spotlight','Hero'),['Spotlight']),E('Radial Gradient','تدرجات دائرية',card('s-scale','Radial','Gradient'),['Gradient']),E('Dark SaaS Hero','خلفية Hero لتطبيق SaaS',card('s-pin','SaaS','Hero'),['SaaS']),E('Map/GIS Background','خلفية خطوط خرائط GIS',card('s-right','GIS','Map lines'),['GIS'])]},
+ images:{icon:'🖼️',title:'Image Effect Prompt Library',desc:'برومبتات تأثيرات الصور: Reveal، Hover Zoom، Overlay، Gallery وBefore/After.',effects:[
+  E('Image Reveal','كشف الصورة عند السكرول',img('img-reveal','Reveal'),['Reveal']),E('Hover Zoom','تكبير الصورة عند المرور',img('img-zoom','Zoom'),['Hover']),E('Overlay Caption','نص يظهر فوق الصورة',img('img-overlay','Caption'),['Overlay']),E('Before After','مقارنة قبل وبعد',img('img-split','Before / After'),['Compare']),E('Parallax Image','صورة تتحرك ببطء مع السكرول',img('img-parallax','Parallax'),['Parallax']),E('Masonry Gallery','شبكة صور Masonry',img('img-grid','Gallery'),['Gallery']),E('Lightbox Image','فتح الصورة في Lightbox',img('img-overlay','Lightbox'),['Lightbox']),E('Image Mask','قص الصورة بقناع مميز',img('img-mask','Mask'),['Mask']),E('3D Image Card','صورة بمنظور ثلاثي',img('img-zoom fx-tilt','3D'),['3D']),E('Blur Up Load','تحميل صورة Blur-up',img('img-reveal','Blur Up'),['Performance']),E('Color Overlay','طبقة لون فوق الصورة',img('img-overlay','Overlay'),['Color']),E('Ken Burns','حركة سينمائية بطيئة',img('img-zoom','Ken Burns'),['Motion']),E('Image Stack','صور متراكبة',img('img-grid','Stack'),['Stack']),E('Portfolio Gallery','معرض أعمال احترافي',img('img-overlay','Portfolio'),['Portfolio']),E('Product Image','صورة منتج مع CTA',img('img-zoom','Product'),['Ecommerce']),E('GIS Map Image','عرض صورة خريطة بتفاعل',img('img-parallax','Map'),['GIS'])]},
+ navigation:{icon:'🧭',title:'Navigation Prompt Library',desc:'برومبتات Navbars، Menus، Tabs، Breadcrumbs، Sidebars وMobile Navigation.',effects:[
+  E('Sticky Navbar','شريط تنقل ثابت مع Blur','<div class=\'nav-live\'><i></i><i></i><i></i></div>',['Navbar']),E('Mega Menu','قائمة Mega Menu متعددة الأعمدة','<div class=\'nav-live\'><i></i><i></i><i></i><i></i></div>',['Mega']),E('Mobile Drawer','قائمة جانبية للجوال',card('s-left','Drawer','Mobile menu'),['Mobile']),E('Animated Tabs','Tabs بخط متحرك','<div class=\'tabs-live\'><i></i><i></i><i></i></div>',['Tabs']),E('Breadcrumbs','مسار تنقل واضح',card('s-up','Home / UI / Prompt','Breadcrumb'),['Breadcrumb']),E('Sidebar Menu','قائمة جانبية للداشبورد',card('s-right','Sidebar','Dashboard'),['Dashboard']),E('Command Palette','لوحة أوامر سريعة',card('glass-card-live','⌘K Search','Command'),['Command']),E('Floating Nav','قائمة عائمة أسفل الصفحة',card('s-pin','Floating Nav','App UI'),['Floating']),E('Scrollspy Nav','تمييز القسم الحالي أثناء السكرول',card('s-scale','Active Section','Scrollspy'),['Scrollspy']),E('Dropdown Menu','قائمة منسدلة ناعمة',card('hover-lift-live','Dropdown','Menu'),['Dropdown']),E('Bottom Nav','تنقل سفلي للجوال',card('s-up','Home • Search • User','Mobile'),['Mobile']),E('Icon Navbar','Navbar يعتمد على الأيقونات',card('hover-glow-live','☰  ⌂  ⚙','Icons'),['Icons']),E('Progress Navbar','Navbar مع شريط تقدم قراءة','<div class=\'progress-live\'><i></i></div>',['Progress']),E('Glass Navbar','Navbar زجاجي حديث',card('glass-card-live','Glass Nav','Blur'),['Glass']),E('SaaS Header','Header متكامل لتطبيق SaaS',card('s-pin','Product • Pricing • Login','SaaS'),['SaaS']),E('RTL Arabic Menu','قائمة عربية RTL كاملة',card('s-right','الرئيسية • الخدمات','RTL'),['Arabic'])]}
 };
-function totalEffects(){return Object.values(PAGES).reduce((n,p)=>n+p.effects.length,0)}
-function nav(){const current=location.pathname.split('/').pop()||'index.html';document.querySelectorAll('[data-nav]').forEach(el=>{el.innerHTML=navItems.map(([href,label])=>`<a href="${href}" class="${href===current?'active':''}">${label}</a>`).join('')})}
-function particles(){const c=document.querySelector('[data-particles]');if(!c)return;const x=c.getContext('2d');let w,h,pts=[];function resize(){w=c.width=innerWidth;h=c.height=innerHeight;pts=Array.from({length:Math.min(95,Math.floor(w*h/17000))},()=>({x:Math.random()*w,y:Math.random()*h,r:Math.random()*1.7+.4,v:Math.random()*.35+.1}))}function draw(){x.clearRect(0,0,w,h);x.fillStyle='rgba(148,225,255,.82)';pts.forEach(p=>{p.y-=p.v;if(p.y<0)p.y=h;x.beginPath();x.arc(p.x,p.y,p.r,0,Math.PI*2);x.fill()});requestAnimationFrame(draw)}addEventListener('resize',resize,{passive:true});resize();draw()}
-function reveal(){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}}),{threshold:.1});document.querySelectorAll('.reveal').forEach(e=>io.observe(e))}
-function tilt(){document.querySelectorAll('.fx-tilt,.library-card').forEach(card=>{card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top;card.style.setProperty('--x',x+'px');card.style.setProperty('--y',y+'px');if(card.classList.contains('fx-tilt'))card.style.transform=`perspective(850px) rotateX(${-(y-r.height/2)/18}deg) rotateY(${(x-r.width/2)/18}deg) translateY(-4px)`});card.addEventListener('pointerleave',()=>{card.style.transform='';card.style.removeProperty('--x');card.style.removeProperty('--y')})})}
-function renderPage(){const key=document.body.dataset.page;if(!key)return;const page=PAGES[key],root=document.getElementById('effectPage');if(!page||!root)return;document.title=page.title+' | Effects Lab';root.innerHTML=`<section class="page-hero reveal"><div class="crumbs"><a href="index.html">الرئيسية</a> / ${page.title}</div><span class="eyebrow">${page.icon} ${page.effects.length} تأثير حي</span><h1>${page.title}</h1><p class="lead">${page.desc}</p></section><section class="toolbar reveal"><strong>نماذج حية مبنية بـ HTML / CSS / JavaScript فقط</strong><span>${page.effects.length} مثال احترافي</span></section><section class="effect-grid">${page.effects.map((e,i)=>`<article class="effect-card reveal"><div class="demo-stage">${e.html}</div><div class="body"><h3>${i+1}. ${e.name}</h3><p>${e.desc}</p><pre><code></code></pre><button class="copy-btn" type="button">نسخ HTML المثال</button></div></article>`).join('')}</section>`;root.querySelectorAll('.effect-card').forEach((card,i)=>{card.querySelector('code').textContent=page.effects[i].html})}
-function renderHome(){document.querySelectorAll('[data-total-effects]').forEach(el=>el.textContent=totalEffects());document.querySelectorAll('[data-page-count]').forEach(el=>el.textContent=Object.keys(PAGES).length);document.querySelectorAll('[data-library-grid]').forEach(grid=>{grid.innerHTML=Object.entries(PAGES).map(([key,p])=>`<a class="library-card reveal" href="${pageFiles[key]}"><div class="icon">${p.icon}</div><h3>${p.title.replace('مكتبة ','')}</h3><p>${p.desc}</p><span class="badge">${p.effects.length} تأثير — افتح المكتبة ←</span></a>`).join('')})}
-function copyButtons(){document.addEventListener('click',async e=>{const b=e.target.closest('.copy-btn');if(!b)return;const code=b.closest('.body').querySelector('code').textContent;try{await navigator.clipboard.writeText(code);b.textContent='تم النسخ';b.classList.add('done');setTimeout(()=>{b.textContent='نسخ HTML المثال';b.classList.remove('done')},1400)}catch{b.textContent='انسخ يدويًا من الصندوق'}})}
-extraCss();nav();renderHome();renderPage();particles();reveal();tilt();copyButtons();
+const PROMPT_TYPES={build:'Build from scratch',integrate:'Add to existing project',react:'React / Tailwind version',optimize:'Performance & accessibility'};
+function promptText(effect,page,type='build'){
+ const base=`أنت Senior Frontend Developer و UI Motion Designer.\nالمطلوب: إنشاء تأثير ${effect.name} ضمن قسم ${page.title}.\nالوصف: ${effect.desc}.\nالنتيجة المطلوبة:\n- واجهة حديثة، نظيفة، Responsive، وتعمل على الجوال والكمبيوتر.\n- حركة ناعمة وغير مزعجة، مناسبة لموقع احترافي.\n- احترام prefers-reduced-motion لتقليل الحركة عند الحاجة.\n- فصل HTML و CSS و JavaScript بوضوح عند الحاجة.\n- عدم استخدام مكتبات خارجية إلا إذا طلبت ذلك صراحة.\n- كتابة كود Production-ready بدون TODO وبدون تعليقات ناقصة.\n- الحفاظ على الأداء وتجنب reflow/repaint غير الضروري.\n- إضافة شرح مختصر لما تم بناؤه وكيفية دمجه.`;
+ if(type==='integrate')return `${base}\n\nسياق التنفيذ:\nأضف التأثير إلى مشروع موجود بدون كسر التصميم الحالي.\nقبل التعديل افحص بنية الصفحة والكلاسات الموجودة.\nاستخدم أسماء كلاسات معزولة لتجنب التعارض.\nلا تغيّر Layout العام إلا عند الضرورة.\nأعد فقط الملفات أو المقاطع التي تحتاج تعديلًا مع شرح واضح.`;
+ if(type==='react')return `${base}\n\nالمطلوب بصيغة React/Tailwind:\n- أنشئ Component قابل لإعادة الاستخدام.\n- استخدم Tailwind CSS قدر الإمكان.\n- استخدم useEffect فقط عند الحاجة للحركة أو Intersection Observer.\n- اجعل الخصائص قابلة للتخصيص عبر props.\n- لا تستخدم مكتبات Animation خارجية إلا إذا كان التأثير يتطلب ذلك.\n- أعطني component كامل مع مثال استخدام.`;
+ if(type==='optimize')return `${base}\n\nركّز على التحسين:\n- استخدم transform و opacity بدل تحريك width/top/left قدر الإمكان.\n- قلل JavaScript واستخدم CSS animations عندما تكون كافية.\n- أضف fallback للجوال والأجهزة الضعيفة.\n- افحص الوصولية: keyboard, focus states, reduced motion.\n- اشرح أي trade-offs في الأداء.`;
+ return base;
+}
+function setupNav(){const nav=document.querySelector('[data-nav]');if(!nav)return;const current=location.pathname.split('/').pop()||'index.html';nav.innerHTML=navItems.map(([href,label])=>`<a href='${href}' class='${href===current?'active':''}'>${label}</a>`).join('')}
+function renderHome(){const grid=document.querySelector('[data-library-grid]');if(!grid)return;grid.innerHTML=Object.entries(PAGES).map(([key,p])=>`<a class='library-card' href='${pageFiles[key]}'><div class='icon'>${p.icon}</div><h3>${p.title}</h3><p>${p.desc}</p><span class='badge'>${p.effects.length} برومبت احترافي ←</span></a>`).join('');document.querySelectorAll('[data-page-count]').forEach(e=>e.textContent=Object.keys(PAGES).length);document.querySelectorAll('[data-total-effects]').forEach(e=>e.textContent=Object.values(PAGES).reduce((a,p)=>a+p.effects.length,0))}
+function renderEffectPage(){const root=document.getElementById('effectPage');if(!root)return;extraCss();const key=document.body.dataset.page;const page=PAGES[key];if(!page){root.innerHTML='<div class=\'empty-state\'>Page data not found</div>';return}document.title=page.title+' | Effects Lab';root.innerHTML=`<section class='page-hero reveal'><div class='crumbs'><a href='index.html'>الرئيسية</a> / ${page.title}</div><span class='eyebrow'>${page.icon} Prompt Library</span><h1>${page.title}</h1><p class='lead'>${page.desc}</p></section><section class='prompt-intro-card reveal'><h3>طريقة الاستخدام</h3><p>اختر نوع البرومبت من الأزرار داخل كل بطاقة، ثم اضغط Copy Professional Prompt واستخدمه في ChatGPT أو Cursor أو Claude أو v0 أو Bolt أو Lovable.</p></section><div class='toolbar reveal'><div><strong>${page.effects.length} برومبت احترافي</strong><br><span>Build / Integrate / React-Tailwind / Optimize</span></div><a class='btn ghost' href='libraries.html'>دليل المكتبات</a></div><section class='effect-grid'>${page.effects.map((ef,i)=>effectCard(ef,page,i)).join('')}</section>`;initPromptCards();reveal()}
+function effectCard(ef,page,i){const first=promptText(ef,page,'build').replace(/</g,'&lt;');return `<article class='effect-card prompt-card reveal' data-effect-index='${i}' data-prompt-type='build'><div class='demo-stage'>${ef.html||`<span class='prompt-demo-label'>${ef.name}</span>`}</div><div class='body'><h3>${ef.name}<span class='effect-number'>#${String(i+1).padStart(2,'0')}</span></h3><p>${ef.desc}</p><div class='prompt-meta'>${(ef.tags||[]).map(t=>`<span class='prompt-pill'>${t}</span>`).join('')}</div><div class='prompt-tabs'>${Object.entries(PROMPT_TYPES).map(([k,v])=>`<button class='prompt-tab ${k==='build'?'active':''}' data-type='${k}'>${v}</button>`).join('')}</div><div class='prompt-preview'>${first}</div><button class='copy-prompt-btn'>Copy Professional Prompt</button></div></article>`}
+function initPromptCards(){document.querySelectorAll('.prompt-card').forEach(cardEl=>{const idx=Number(cardEl.dataset.effectIndex);const key=document.body.dataset.page;const page=PAGES[key];const ef=page.effects[idx];cardEl.addEventListener('click',async e=>{const tab=e.target.closest('.prompt-tab');if(tab){cardEl.querySelectorAll('.prompt-tab').forEach(t=>t.classList.remove('active'));tab.classList.add('active');cardEl.dataset.promptType=tab.dataset.type;cardEl.querySelector('.prompt-preview').textContent=promptText(ef,page,tab.dataset.type)}const btn=e.target.closest('.copy-prompt-btn');if(btn){const type=cardEl.dataset.promptType||'build';const txt=promptText(ef,page,type);try{await navigator.clipboard.writeText(txt);btn.textContent='تم نسخ البرومبت';btn.classList.add('done');setTimeout(()=>{btn.textContent='Copy Professional Prompt';btn.classList.remove('done')},1400)}catch{cardEl.querySelector('.prompt-preview').textContent=txt}}})})}
+function initReveal(){const obs=new IntersectionObserver(entries=>entries.forEach(en=>{if(en.isIntersecting)en.target.classList.add('show')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>obs.observe(el))}
+function reveal(){document.querySelectorAll('.reveal').forEach((e,i)=>setTimeout(()=>e.classList.add('show'),Math.min(i*30,600)))}
+function initTilt(){document.addEventListener('mousemove',e=>{document.querySelectorAll('.fx-tilt').forEach(el=>{const r=el.getBoundingClientRect();const x=e.clientX-r.left,y=e.clientY-r.top;if(x<0||y<0||x>r.width||y>r.height)return;const rx=(y/r.height-.5)*-10,ry=(x/r.width-.5)*10;el.style.transform=`perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`})});document.addEventListener('mouseleave',()=>document.querySelectorAll('.fx-tilt').forEach(el=>el.style.transform=''))}
+function initParticles(){const c=document.querySelector('[data-particles]');if(!c)return;const ctx=c.getContext('2d');let w,h,pts=[];const resize=()=>{w=c.width=innerWidth;h=c.height=innerHeight;pts=Array.from({length:Math.min(90,Math.floor(w/18))},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:Math.random()*1.8+0.6}))};const draw=()=>{ctx.clearRect(0,0,w,h);ctx.fillStyle='rgba(148, 163, 184, .75)';pts.forEach(p=>{p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill()});requestAnimationFrame(draw)};resize();addEventListener('resize',resize);draw()}
+document.addEventListener('DOMContentLoaded',()=>{setupNav();extraCss();renderHome();renderEffectPage();initReveal();initTilt();initParticles()});
