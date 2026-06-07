@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="اختر أفضل مكتبات وبرومبتات Effects Lab حسب نوع مشروعك: Portfolio، Dashboard، SaaS، GIS، Animation، 3D، Blog." />
+  <meta name="description" content="اختر أفضل مكتبات وبرومبتات Effects Lab حسب نوع مشروعك مع توليد AI عبر Pollinations." />
   <meta name="theme-color" content="#050816" />
   <title>توصيات حسب نوع المشروع | Effects Lab</title>
   <link rel="canonical" href="https://aiocpgis.github.io/3d/recommendations.html" />
   <meta property="og:title" content="Effects Lab | توصيات حسب نوع المشروع" />
-  <meta property="og:description" content="اختيار مكتبات وبرومبتات مناسبة حسب نوع المشروع بدون Backend أو تسجيل دخول." />
+  <meta property="og:description" content="اختيار مكتبات وبرومبتات مناسبة حسب نوع المشروع مع Pollinations AI وLocal fallback." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://aiocpgis.github.io/3d/recommendations.html" />
   <link rel="stylesheet" href="assets/styles.css" />
   <link rel="stylesheet" href="assets/recommendations.css" />
+  <link rel="stylesheet" href="assets/context-ai.css" />
 </head>
 <body>
   <canvas class="space-canvas" data-particles></canvas>
@@ -35,9 +36,9 @@
 
   <main id="main-content">
     <section class="catalog-hero reveal show">
-      <span class="eyebrow">🧭 Sprint 2</span>
+      <span class="eyebrow">🧭 Sprint 2 + AI</span>
       <h1>اختر أفضل مكتبات وبرومبتات حسب نوع مشروعك</h1>
-      <p class="lead">هذه الصفحة تساعدك تختار Stack مناسب، صفحات برومبتات مفيدة، وبرومبت مشروع جاهز حسب نوع الموقع الذي تريد بناءه.</p>
+      <p class="lead">اختر نوع المشروع، ثم استخدم Pollinations AI لتوليد برومبت مخصص بدل الاعتماد على نص ثابت طويل.</p>
       <div class="hero-actions">
         <a class="btn primary" href="#recommendationApp">ابدأ الاختيار</a>
         <a class="btn ghost" href="libraries.html">دليل المكتبات</a>
@@ -50,7 +51,7 @@
           <span class="eyebrow">🎯 نوع المشروع</span>
           <h2>اختر حالة الاستخدام</h2>
         </div>
-        <p>كل اختيار يعرض مكتبات مناسبة، صفحات برومبتات، وبرومبت جاهز للنسخ.</p>
+        <p>كل اختيار يعرض مكتبات مناسبة، صفحات برومبتات، وبرومبت قابل للتوليد بالذكاء الاصطناعي.</p>
       </div>
       <div class="project-grid" id="projectGrid"></div>
       <div id="recommendationApp"></div>
@@ -62,5 +63,6 @@
   <script src="assets/sprint1.js"></script>
   <script src="assets/library-data.js"></script>
   <script src="assets/recommendations.js"></script>
+  <script src="assets/context-ai.js"></script>
 </body>
 </html>
