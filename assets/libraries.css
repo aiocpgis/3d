@@ -1,0 +1,36 @@
+
+.catalog-hero{max-width:var(--max);margin:0 auto;padding:70px 20px 34px}
+.catalog-hero h1{font-size:clamp(36px,6vw,78px);line-height:1.06;margin:20px 0 16px}
+.catalog-panel{max-width:var(--max);margin:0 auto;padding:0 20px 70px}
+.catalog-search{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;padding:18px;border:1px solid var(--line);border-radius:26px;background:rgba(255,255,255,.06);backdrop-filter:blur(14px);box-shadow:0 20px 70px rgba(0,0,0,.22)}
+.catalog-search input{width:100%;border:1px solid rgba(148,163,184,.23);border-radius:18px;padding:16px 18px;background:#020617;color:var(--text);outline:none;font-size:16px}
+.catalog-search input:focus{border-color:rgba(56,189,248,.65);box-shadow:0 0 0 4px rgba(56,189,248,.12)}
+.catalog-counter{padding:12px 16px;border-radius:16px;background:linear-gradient(135deg,rgba(56,189,248,.16),rgba(139,92,246,.14));border:1px solid rgba(56,189,248,.25);font-weight:900;white-space:nowrap}
+.catalog-chips{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 26px}
+.catalog-chip{border:1px solid var(--line);background:rgba(255,255,255,.055);color:var(--muted);border-radius:999px;padding:10px 13px;cursor:pointer;font-weight:800;transition:.22s}
+.catalog-chip span{margin-inline-start:6px;color:#dbeafe}
+.catalog-chip:hover,.catalog-chip.active{color:var(--text);border-color:rgba(56,189,248,.48);background:rgba(56,189,248,.12);transform:translateY(-2px)}
+.catalog-category-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:26px 0 34px}
+.catalog-category-card{padding:20px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,rgba(255,255,255,.085),rgba(255,255,255,.025));cursor:pointer;transition:.25s;min-height:210px}
+.catalog-category-card:hover{transform:translateY(-7px);border-color:rgba(56,189,248,.42);box-shadow:0 18px 55px rgba(0,0,0,.28)}
+.category-icon{width:48px;height:48px;border-radius:16px;display:grid;place-items:center;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.22);font-size:24px}
+.catalog-category-card h3{font-size:18px;line-height:1.45;margin:16px 0 8px}
+.catalog-category-card p{color:var(--muted);line-height:1.75;font-size:14px;margin:0 0 14px}
+.catalog-category-card strong{color:#c9f3ff}
+.catalog-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.library-item-card{padding:18px;border:1px solid var(--line);border-radius:22px;background:rgba(15,23,42,.72);box-shadow:0 16px 45px rgba(0,0,0,.18);transition:.25s;position:relative;overflow:hidden}
+.library-item-card:before{content:"";position:absolute;inset:-60% -20% auto auto;width:150px;height:150px;border-radius:50%;background:rgba(56,189,248,.13);filter:blur(10px)}
+.library-item-card:hover{transform:translateY(-6px);border-color:rgba(139,92,246,.42)}
+.library-item-card>*{position:relative}
+.library-item-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.library-item-icon{width:38px;height:38px;border-radius:14px;display:grid;place-items:center;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1)}
+.library-item-group{font-size:11px;color:#bae6fd;text-align:left;line-height:1.4}
+.library-item-card h3{font-size:20px;margin:16px 0 8px;direction:ltr;text-align:left}
+.library-item-card p{font-size:13px;color:var(--muted);line-height:1.7;margin:0;min-height:66px}
+.library-item-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.mini-copy,.mini-tag{border:1px solid rgba(56,189,248,.25);border-radius:12px;padding:9px 10px;background:rgba(56,189,248,.09);color:#e0f2fe;cursor:pointer;font-weight:800;font-size:12px}
+.mini-tag{background:rgba(139,92,246,.1);border-color:rgba(139,92,246,.25)}
+.empty-state{padding:28px;border:1px dashed rgba(148,163,184,.35);border-radius:22px;text-align:center;color:var(--muted);background:rgba(255,255,255,.04)}
+.catalog-note{margin-top:22px;padding:18px;border:1px solid rgba(250,204,21,.25);border-radius:20px;background:rgba(250,204,21,.07);color:#fde68a;line-height:1.8}
+@media(max-width:1050px){.catalog-category-grid,.catalog-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){.catalog-search{grid-template-columns:1fr}.catalog-category-grid,.catalog-grid{grid-template-columns:1fr}.catalog-hero{padding-top:46px}.library-item-card p{min-height:auto}}
