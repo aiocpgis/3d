@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="اختر أفضل مكتبات وبرومبتات Effects Lab حسب نوع مشروعك: Portfolio، Dashboard، SaaS، GIS، Animation، 3D، Blog." />
+  <meta name="theme-color" content="#050816" />
+  <title>توصيات حسب نوع المشروع | Effects Lab</title>
+  <link rel="canonical" href="https://aiocpgis.github.io/3d/recommendations.html" />
+  <meta property="og:title" content="Effects Lab | توصيات حسب نوع المشروع" />
+  <meta property="og:description" content="اختيار مكتبات وبرومبتات مناسبة حسب نوع المشروع بدون Backend أو تسجيل دخول." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://aiocpgis.github.io/3d/recommendations.html" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/recommendations.css" />
+</head>
+<body>
+  <canvas class="space-canvas" data-particles></canvas>
+  <div class="noise"></div>
+
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="index.html" aria-label="العودة للرئيسية">
+        <span class="brand-mark">FX</span>
+        <span>Effects Lab<small>Project Recommendations</small></span>
+      </a>
+      <nav class="nav-links" aria-label="القائمة الرئيسية">
+        <a href="index.html">الرئيسية</a>
+        <a href="libraries.html">دليل المكتبات</a>
+        <a href="favorites.html">المفضلة</a>
+        <a class="active" href="recommendations.html">التوصيات</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="catalog-hero reveal show">
+      <span class="eyebrow">🧭 Sprint 2</span>
+      <h1>اختر أفضل مكتبات وبرومبتات حسب نوع مشروعك</h1>
+      <p class="lead">هذه الصفحة تساعدك تختار Stack مناسب، صفحات برومبتات مفيدة، وبرومبت مشروع جاهز حسب نوع الموقع الذي تريد بناءه.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#recommendationApp">ابدأ الاختيار</a>
+        <a class="btn ghost" href="libraries.html">دليل المكتبات</a>
+      </div>
+    </section>
+
+    <section class="recommend-shell">
+      <div class="section-head reveal show">
+        <div>
+          <span class="eyebrow">🎯 نوع المشروع</span>
+          <h2>اختر حالة الاستخدام</h2>
+        </div>
+        <p>كل اختيار يعرض مكتبات مناسبة، صفحات برومبتات، وبرومبت جاهز للنسخ.</p>
+      </div>
+      <div class="project-grid" id="projectGrid"></div>
+      <div id="recommendationApp"></div>
+    </section>
+  </main>
+
+  <footer class="footer">Effects Lab — توصيات عملية للمطورين حسب نوع المشروع.</footer>
+  <script src="assets/app.js"></script>
+  <script src="assets/sprint1.js"></script>
+  <script src="assets/library-data.js"></script>
+  <script src="assets/recommendations.js"></script>
+</body>
+</html>
