@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aiocpgis.github.io/3d/sitemap.xml
