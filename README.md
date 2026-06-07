@@ -1,14 +1,15 @@
 # Effects Lab - Arabic Developer Prompt & UI Libraries Platform
 
-منصة عربية مرجعية للمطورين تحتوي على برومبتات احترافية لتوليد تأثيرات الويب داخل أدوات الذكاء الاصطناعي، مع دليل شامل لمكتبات وإطارات عمل الويب وتوصيات حسب نوع المشروع.
+منصة عربية مرجعية للمطورين تحتوي على AI Prompt Studio وبرومبتات احترافية لتوليد تأثيرات الويب داخل أدوات الذكاء الاصطناعي، مع دليل شامل لمكتبات وإطارات عمل الويب وتوصيات حسب نوع المشروع.
 
 ## الفكرة الجديدة
 
 بدل أن يكون الموقع مجرد معرض أكواد، أصبح منصة Prompt Library:
 
+- صفحة `studio.html` تعمل كـ AI Prompt Studio لصناعة برومبت إنتاجي مخصص لأي مشروع.
 - كل تأثير يحتوي Prompt احترافي جاهز للنسخ.
 - كل تأثير يدعم توليد برومبت حقيقي عبر Pollinations AI.
-- صفحات المكتبات والتوصيات تدعم الآن توليد برومبتات مخصصة عبر Pollinations AI.
+- صفحات المكتبات والتوصيات تدعم توليد برومبتات مخصصة عبر Pollinations AI.
 - يوجد Local fallback prompt إذا فشل اتصال الذكاء الاصطناعي.
 - كل تأثير يحتوي 4 أنواع برومبت:
   - Build from scratch
@@ -17,6 +18,24 @@
   - Performance & accessibility
 - البرومبتات مناسبة للاستخدام مع ChatGPT و Cursor و Claude و v0 و Bolt و Lovable.
 - المعاينات البصرية بقيت موجودة حتى يفهم المستخدم شكل التأثير قبل نسخ البرومبت.
+
+## AI Prompt Studio
+
+تمت إضافة صفحة مركزية جديدة:
+
+- `studio.html` صفحة توليد برومبتات مخصصة.
+- `assets/studio.css` تصميم صفحة Studio.
+- `assets/studio.js` منطق التوليد، Pollinations AI، Local fallback، التخزين المحلي، النسخ، والحفظ في المفضلة.
+
+تسمح الصفحة باختيار:
+
+- نوع المشروع.
+- الأداة المستهدفة: ChatGPT / Cursor / Claude / v0 / Bolt / Lovable / GitHub Copilot.
+- نوع الناتج: HTML/CSS/JS أو React أو Next.js أو Tailwind أو CSS فقط أو خطة معمارية أو Code Review Prompt.
+- وضع العمل: بناء من الصفر، إضافة لمشروع موجود، تحسين واجهة، تحويل كود، تحسين أداء ووصولية، أو Debug/Refactor.
+- تصنيف التأثير والتأثير المطلوب من بيانات الموقع الحالية.
+- مكتبة اختيارية من دليل المكتبات.
+- سياق إضافي من المستخدم.
 
 ## AI Prompt Generator
 
@@ -70,6 +89,7 @@
 ## الصفحات الموجودة
 
 - `index.html` الصفحة الرئيسية.
+- `studio.html` صفحة AI Prompt Studio.
 - `favorites.html` صفحة المفضلة المحلية.
 - `recommendations.html` صفحة التوصيات حسب نوع المشروع.
 - `libraries.html` دليل مكتبات وإطارات عمل الويب.
@@ -108,6 +128,8 @@
 - `assets/prompt-platform.css` يحتوي تصميم واجهة البرومبتات وأزرار النسخ وأنواع البرومبت.
 - `assets/ai-prompt.css` يحتوي تصميم أزرار Pollinations AI وحالات التحميل والخطأ.
 - `assets/ai-prompt.js` يحتوي منطق Pollinations AI، التخزين المحلي، والـ Local fallback.
+- `assets/studio.css` يحتوي تصميم AI Prompt Studio.
+- `assets/studio.js` يحتوي منطق AI Prompt Studio.
 - `assets/context-ai.css` يحتوي تصميم AI داخل صفحات المكتبات والتوصيات.
 - `assets/context-ai.js` يحتوي منطق AI لصفحات المكتبات والتوصيات.
 - `assets/sprint1.css` يحتوي بحث البرومبتات، الوسوم، المفضلة، وتحسينات الوصولية.
@@ -127,6 +149,7 @@
 ## المميزات
 
 - تصميم عربي RTL.
+- AI Prompt Studio مركزي لصناعة برومبتات مخصصة.
 - 10 صفحات برومبتات تأثيرات.
 - 160 تأثير مع Prompt احترافي.
 - توليد AI حقيقي عبر Pollinations AI.
