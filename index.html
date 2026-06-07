@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="موقع عربي بتأثيرات ثلاثية الأبعاد 3D، متجاوب وسريع ومبني بملف HTML واحد." />
+  <meta name="theme-color" content="#050816" />
+  <title>Nova 3D | موقع عربي بتأثيرات ثلاثية الأبعاد</title>
+  <style>
+    :root {
+      --bg: #050816;
+      --card: rgba(15, 23, 42, .72);
+      --card-strong: rgba(15, 23, 42, .92);
+      --line: rgba(148, 163, 184, .22);
+      --text: #f8fafc;
+      --muted: #b6c3d1;
+      --primary: #38bdf8;
+      --secondary: #8b5cf6;
+      --accent: #22d3ee;
+      --shadow: 0 25px 80px rgba(0, 0, 0, .42);
+      --radius: 26px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Tahoma, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 15%, rgba(56, 189, 248, .16), transparent 28rem),
+        radial-gradient(circle at 85% 10%, rgba(139, 92, 246, .18), transparent 30rem),
+        radial-gradient(circle at 50% 90%, rgba(34, 211, 238, .1), transparent 26rem),
+        var(--bg);
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    #spaceCanvas { position: fixed; inset: 0; width: 100%; height: 100%; z-index: -2; }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: linear-gradient(180deg, rgba(5, 8, 22, .9), rgba(5, 8, 22, .55));
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(148, 163, 184, .14);
+    }
+
+    .nav {
+      width: min(100% - 32px, var(--max));
+      margin: auto;
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 900; letter-spacing: .4px; }
+    .logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--primary), var(--secondary), #0f172a);
+      box-shadow: 0 18px 50px rgba(56, 189, 248, .25);
+      transform: rotate(-8deg);
+    }
+
+    .nav-links { display: flex; align-items: center; gap: 10px; }
+    .nav-links a {
+      padding: 10px 14px;
+      color: var(--muted);
+      border-radius: 999px;
+      transition: .2s ease;
+    }
+    .nav-links a:hover { color: var(--text); background: rgba(148, 163, 184, .1); }
+
+    .menu-btn { display: none; border: 1px solid var(--line); background: rgba(15,23,42,.85); color: var(--text); border-radius: 14px; padding: 10px 12px; }
+
+    .shell { width: min(100% - 32px, var(--max)); margin: auto; }
+    .hero {
+      min-height: calc(100vh - 76px);
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 52px;
+      align-items: center;
+      padding-block: 70px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 16px;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #dff8ff;
+      background: rgba(56, 189, 248, .1);
+      font-size: .92rem;
+    }
+
+    h1, h2, h3 { margin: 0; line-height: 1.15; }
+    h1 { font-size: clamp(2.35rem, 6vw, 5.4rem); max-width: 850px; }
+    h2 { font-size: clamp(1.85rem, 4vw, 3.2rem); }
+    h3 { font-size: 1.35rem; }
+    p { line-height: 1.9; color: var(--muted); }
+    .hero-text { font-size: 1.1rem; max-width: 680px; }
+
+    .actions { display: flex; gap: 14px; flex-wrap: wrap; margin: 28px 0; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      cursor: pointer;
+      transition: .22s ease;
+    }
+    .btn-primary { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #fff; border: 0; box-shadow: 0 18px 50px rgba(56, 189, 248, .22); }
+    .btn-ghost { background: rgba(15, 23, 42, .45); color: var(--text); }
+    .btn:hover { transform: translateY(-3px); }
+
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; max-width: 620px; }
+    .stats article {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(15,23,42,.55);
+    }
+    .stats strong { display: block; font-size: 1.55rem; color: #fff; }
+    .stats span { color: var(--muted); font-size: .9rem; }
+
+    .stage-wrap { min-height: 520px; display: grid; place-items: center; perspective: 1100px; }
+    .stage {
+      position: relative;
+      width: min(82vw, 430px);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      transform-style: preserve-3d;
+      transition: transform .2s ease;
+    }
+    .ring {
+      position: absolute;
+      inset: 20px;
+      border: 1px solid rgba(56, 189, 248, .28);
+      border-radius: 50%;
+      transform-style: preserve-3d;
+      box-shadow: inset 0 0 40px rgba(56, 189, 248, .1), 0 0 60px rgba(139, 92, 246, .14);
+      animation: orbit 12s linear infinite;
+    }
+    .ring.two { inset: 56px; transform: rotateY(70deg); animation: orbitReverse 15s linear infinite; border-color: rgba(139,92,246,.32); }
+
+    .cube {
+      width: 164px;
+      height: 164px;
+      position: relative;
+      transform-style: preserve-3d;
+      animation: spinCube 10s linear infinite;
+    }
+    .face {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.25);
+      background: linear-gradient(135deg, rgba(56,189,248,.28), rgba(139,92,246,.22));
+      color: #fff;
+      font-weight: 900;
+      font-size: 1.5rem;
+      border-radius: 22px;
+      box-shadow: inset 0 0 35px rgba(255,255,255,.08);
+      backdrop-filter: blur(12px);
+    }
+    .front { transform: translateZ(82px); }
+    .back { transform: rotateY(180deg) translateZ(82px); }
+    .right { transform: rotateY(90deg) translateZ(82px); }
+    .left { transform: rotateY(-90deg) translateZ(82px); }
+    .top { transform: rotateX(90deg) translateZ(82px); }
+    .bottom { transform: rotateX(-90deg) translateZ(82px); }
+
+    .planet { position: absolute; width: 18px; height: 18px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 28px var(--primary); }
+    .p1 { top: 15%; right: 18%; animation: floatA 4s ease-in-out infinite; }
+    .p2 { bottom: 22%; left: 9%; background: var(--secondary); box-shadow: 0 0 28px var(--secondary); animation: floatB 5s ease-in-out infinite; }
+    .p3 { bottom: 12%; right: 34%; background: var(--accent); box-shadow: 0 0 28px var(--accent); animation: floatC 4.8s ease-in-out infinite; }
+
+    section { padding-block: 78px; }
+    .section-head { text-align: center; max-width: 740px; margin: 0 auto 36px; }
+
+    .cards, .pricing {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .card, .price, .panel, .form {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+      transform-style: preserve-3d;
+    }
+    .card, .price { padding: 26px; min-height: 240px; }
+    .card::before, .price::before, .form::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(56,189,248,.22), transparent 32%);
+      opacity: 0;
+      transition: .2s ease;
+      pointer-events: none;
+    }
+    .card:hover::before, .price:hover::before, .form:hover::before { opacity: 1; }
+    .icon { font-size: 2rem; display: inline-block; margin-bottom: 18px; transform: translateZ(40px); }
+    .card h3, .card p, .price h3, .price p, .price strong, .price a { position: relative; z-index: 1; }
+    .price strong { display: block; font-size: 2.6rem; margin: 22px 0; color: #fff; }
+    .featured { border-color: rgba(56,189,248,.45); transform: translateY(-12px); background: linear-gradient(180deg, rgba(56,189,248,.16), var(--card-strong)); }
+    .badge { display: inline-block; padding: 6px 12px; border-radius: 999px; background: rgba(56,189,248,.16); color: #dff8ff; margin-bottom: 12px; }
+
+    .showcase {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+      align-items: center;
+    }
+    .panel { padding: 22px; min-height: 360px; perspective: 1000px; }
+    .dash {
+      min-height: 310px;
+      border-radius: 24px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(15,23,42,.92), rgba(30,41,59,.62));
+      transform: rotateX(10deg) rotateY(-16deg);
+      transform-style: preserve-3d;
+      box-shadow: 28px 32px 80px rgba(0,0,0,.42);
+      padding: 20px;
+    }
+    .bars { display: flex; gap: 8px; margin-bottom: 30px; }
+    .bars span { width: 14px; height: 14px; border-radius: 50%; background: var(--primary); opacity: .75; }
+    .metrics { display: grid; gap: 16px; }
+    .metric { padding: 18px; border: 1px solid var(--line); border-radius: 18px; background: rgba(2,6,23,.52); transform: translateZ(35px); animation: cardFloat 4s ease-in-out infinite; }
+    .metric:nth-child(2) { animation-delay: .6s; }
+    .metric:nth-child(3) { animation-delay: 1.2s; }
+    .metric strong { display: block; font-size: 1.7rem; margin: 6px 0; }
+    .progress { height: 9px; border-radius: 999px; background: rgba(148,163,184,.18); overflow: hidden; }
+    .progress span { display: block; height: 100%; width: var(--v); border-radius: inherit; background: linear-gradient(90deg, var(--primary), var(--secondary)); }
+
+    .contact {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 28px;
+      align-items: start;
+    }
+    .form { padding: 24px; display: grid; gap: 16px; }
+    label { display: grid; gap: 8px; color: #e5f6ff; }
+    input, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px 15px;
+      background: rgba(2,6,23,.5);
+      color: var(--text);
+      outline: none;
+    }
+    input:focus, textarea:focus { border-color: rgba(56,189,248,.6); box-shadow: 0 0 0 4px rgba(56,189,248,.1); }
+    .status { min-height: 24px; margin: 0; }
+    .error { color: #fecdd3; }
+
+    .footer {
+      width: min(100% - 32px, var(--max));
+      margin: auto;
+      padding: 30px 0 42px;
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      border-top: 1px solid rgba(148,163,184,.14);
+    }
+
+    .reveal { opacity: 0; transform: translateY(24px); transition: .75s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @keyframes spinCube {
+      0% { transform: rotateX(-18deg) rotateY(0deg); }
+      100% { transform: rotateX(342deg) rotateY(360deg); }
+    }
+    @keyframes orbit { to { transform: rotateX(72deg) rotateZ(360deg); } }
+    @keyframes orbitReverse { to { transform: rotateY(70deg) rotateZ(-360deg); } }
+    @keyframes floatA { 50% { transform: translate3d(18px, -22px, 80px); } }
+    @keyframes floatB { 50% { transform: translate3d(-24px, 14px, 100px); } }
+    @keyframes floatC { 50% { transform: translate3d(22px, 20px, 90px); } }
+    @keyframes cardFloat { 50% { transform: translateZ(58px) translateY(-8px); } }
+
+    @media (max-width: 940px) {
+      .hero, .showcase, .contact { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
+      .cards, .pricing { grid-template-columns: 1fr; }
+      .featured { transform: none; }
+      .stage-wrap { min-height: 420px; }
+      .dash { transform: none; }
+    }
+
+    @media (max-width: 720px) {
+      .menu-btn { display: inline-flex; }
+      .nav-links {
+        position: fixed;
+        inset: 76px 12px auto;
+        display: grid;
+        gap: 8px;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        background: rgba(15, 23, 42, .97);
+        box-shadow: var(--shadow);
+        transform: translateY(-14px);
+        opacity: 0;
+        pointer-events: none;
+        transition: .22s ease;
+      }
+      .nav-links.open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+      h1 { font-size: clamp(2.15rem, 12vw, 3.4rem); }
+      .stats { grid-template-columns: 1fr; }
+      .cube { width: 132px; height: 132px; }
+      .front { transform: translateZ(66px); }
+      .back { transform: rotateY(180deg) translateZ(66px); }
+      .right { transform: rotateY(90deg) translateZ(66px); }
+      .left { transform: rotateY(-90deg) translateZ(66px); }
+      .top { transform: rotateX(90deg) translateZ(66px); }
+      .bottom { transform: rotateX(-90deg) translateZ(66px); }
+      .footer { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="spaceCanvas" aria-hidden="true"></canvas>
+
+  <header class="header">
+    <nav class="nav" aria-label="التنقل الرئيسي">
+      <a class="brand" href="#top"><span class="logo">N</span><span>Nova 3D</span></a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-controls="navLinks" aria-expanded="false">القائمة</button>
+      <div class="nav-links" id="navLinks">
+        <a href="#features">المميزات</a>
+        <a href="#showcase">العرض</a>
+        <a href="#pricing">الباقات</a>
+        <a href="#contact">تواصل</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero shell">
+      <div class="reveal">
+        <p class="eyebrow">تجربة ويب حديثة بتأثيرات 3D</p>
+        <h1>موقع إلكتروني عربي بتصميم فاخر وحركة ثلاثية الأبعاد</h1>
+        <p class="hero-text">قالب Landing Page جاهز للتعديل يصلح لشركة تقنية، بورتفوليو، منصة خدمات، أو مشروع ناشئ. سريع، متجاوب، وبدون مكتبات خارجية.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#contact">ابدأ الآن</a>
+          <a class="btn btn-ghost" href="#showcase">شاهد التأثيرات</a>
+        </div>
+        <div class="stats">
+          <article><strong>100%</strong><span>Responsive</span></article>
+          <article><strong>3D</strong><span>CSS + JS</span></article>
+          <article><strong>0</strong><span>مكتبات مدفوعة</span></article>
+        </div>
+      </div>
+
+      <div class="stage-wrap reveal" aria-label="مجسم ثلاثي الأبعاد متحرك">
+        <div class="stage" id="stage">
+          <div class="ring"></div>
+          <div class="ring two"></div>
+          <div class="cube" aria-hidden="true">
+            <div class="face front">AI</div>
+            <div class="face back">3D</div>
+            <div class="face right">UX</div>
+            <div class="face left">WEB</div>
+            <div class="face top">GIS</div>
+            <div class="face bottom">DEV</div>
+          </div>
+          <span class="planet p1"></span>
+          <span class="planet p2"></span>
+          <span class="planet p3"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell" id="features">
+      <div class="section-head reveal">
+        <p class="eyebrow">المميزات</p>
+        <h2>تأثيرات قوية بدون تعقيد</h2>
+        <p>الهدف ليس الزينة فقط، بل تجربة تبدو احترافية ولا تخنق سرعة الموقع.</p>
+      </div>
+      <div class="cards">
+        <article class="card tilt reveal"><span class="icon">✦</span><h3>بطاقات 3D تفاعلية</h3><p>تميل البطاقة مع حركة الماوس لتعطي إحساسًا عميقًا بدون أي مكتبة خارجية.</p></article>
+        <article class="card tilt reveal"><span class="icon">◈</span><h3>خلفية نجوم متحركة</h3><p>Canvas خفيف يرسم جزيئات متحركة ويستجيب لحجم الشاشة.</p></article>
+        <article class="card tilt reveal"><span class="icon">⬡</span><h3>مجسم دوّار</h3><p>مكعب CSS ثلاثي الأبعاد مناسب للهوية البصرية أو عرض كلمات مفتاحية.</p></article>
+      </div>
+    </section>
+
+    <section class="showcase shell" id="showcase">
+      <div class="panel reveal">
+        <div class="dash">
+          <div class="bars"><span></span><span></span><span></span></div>
+          <div class="metrics">
+            <div class="metric"><small>Performance</small><strong>98</strong><div class="progress"><span style="--v:98%"></span></div></div>
+            <div class="metric"><small>Design</small><strong>3D</strong><div class="progress"><span style="--v:86%"></span></div></div>
+            <div class="metric"><small>Mobile</small><strong>Ready</strong><div class="progress"><span style="--v:94%"></span></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <p class="eyebrow">العرض</p>
+        <h2>واجهة Dashboard وهمية بعمق بصري</h2>
+        <p>هذه المنطقة تعرض كيف يمكن تقديم خدمة أو منتج أو منصة بشكل حديث. يمكن لاحقًا تحويلها إلى موقع حقيقي مربوط ببيانات وتسجيل دخول ولوحة تحكم.</p>
+      </div>
+    </section>
+
+    <section class="shell" id="pricing">
+      <div class="section-head reveal">
+        <p class="eyebrow">الباقات</p>
+        <h2>قسم أسعار قابل للتعديل</h2>
+      </div>
+      <div class="pricing">
+        <article class="price reveal"><h3>أساسي</h3><p>مناسب للبورتفوليو والصفحات الشخصية.</p><strong>$0</strong><a class="btn btn-ghost" href="#contact">اختر الباقة</a></article>
+        <article class="price featured reveal"><span class="badge">الأفضل</span><h3>احترافي</h3><p>مناسب لموقع خدمات أو شركة صغيرة.</p><strong>$49</strong><a class="btn btn-primary" href="#contact">اختر الباقة</a></article>
+        <article class="price reveal"><h3>متقدم</h3><p>مناسب لمنصة كاملة مع لوحة تحكم لاحقًا.</p><strong>$99</strong><a class="btn btn-ghost" href="#contact">اختر الباقة</a></article>
+      </div>
+    </section>
+
+    <section class="contact shell" id="contact">
+      <div class="reveal">
+        <p class="eyebrow">تواصل</p>
+        <h2>جاهز للتعديل على مشروعك الحقيقي</h2>
+        <p>النموذج الحالي يعمل كواجهة فقط. يمكن ربطه لاحقًا بـ Supabase أو Firebase أو أي Backend.</p>
+      </div>
+      <form class="form reveal" id="contactForm" novalidate>
+        <label>الاسم<input type="text" name="name" placeholder="اكتب اسمك" required minlength="2" /></label>
+        <label>البريد الإلكتروني<input type="email" name="email" placeholder="name@example.com" required /></label>
+        <label>الرسالة<textarea name="message" rows="5" placeholder="اكتب رسالتك هنا" required minlength="10"></textarea></label>
+        <button class="btn btn-primary" type="submit">إرسال تجريبي</button>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Nova 3D. جميع الحقوق محفوظة.</p>
+    <a href="#top">العودة للأعلى ↑</a>
+  </footer>
+
+  <script>
+    'use strict';
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn?.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+    });
+    navLinks?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuBtn?.setAttribute('aria-expanded', 'false');
+    }));
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .16 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    document.querySelectorAll('.tilt, .price, .form').forEach(card => {
+      card.addEventListener('pointermove', event => {
+        const rect = card.getBoundingClientRect();
+        const x = ((event.clientX - rect.left) / rect.width) * 100;
+        const y = ((event.clientY - rect.top) / rect.height) * 100;
+        card.style.setProperty('--mx', `${x}%`);
+        card.style.setProperty('--my', `${y}%`);
+        if (reduceMotion || !card.classList.contains('tilt')) return;
+        const ry = ((event.clientX - rect.left) / rect.width - .5) * -14;
+        const rx = ((event.clientY - rect.top) / rect.height - .5) * 14;
+        card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px)`;
+      });
+      card.addEventListener('pointerleave', () => {
+        if (card.classList.contains('tilt')) card.style.transform = 'perspective(900px) rotateX(0) rotateY(0) translateY(0)';
+      });
+    });
+
+    const stage = document.getElementById('stage');
+    if (stage && !reduceMotion) {
+      window.addEventListener('pointermove', event => {
+        const x = (event.clientX - innerWidth / 2) * .04;
+        const y = (event.clientY - innerHeight / 2) * .04;
+        stage.style.transform = `rotateX(${y * -.22}deg) rotateY(${x * .22}deg)`;
+      }, { passive: true });
+    }
+
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('status');
+    form?.addEventListener('submit', event => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const name = String(data.get('name') || '').trim();
+      const email = String(data.get('email') || '').trim();
+      const message = String(data.get('message') || '').trim();
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      status.classList.remove('error');
+      if (name.length < 2 || !emailOk || message.length < 10) {
+        status.textContent = 'تأكد من إدخال الاسم، بريد صحيح، ورسالة لا تقل عن 10 أحرف.';
+        status.classList.add('error');
+        return;
+      }
+      form.reset();
+      status.textContent = 'تمت محاكاة الإرسال بنجاح. اربط النموذج بباكند عند الحاجة.';
+    });
+
+    const canvas = document.getElementById('spaceCanvas');
+    const ctx = canvas.getContext('2d');
+    let stars = [];
+    function resizeCanvas() {
+      const ratio = Math.min(devicePixelRatio || 1, 2);
+      canvas.width = Math.floor(innerWidth * ratio);
+      canvas.height = Math.floor(innerHeight * ratio);
+      canvas.style.width = `${innerWidth}px`;
+      canvas.style.height = `${innerHeight}px`;
+      ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+      const count = Math.min(120, Math.floor((innerWidth * innerHeight) / 11000));
+      stars = Array.from({ length: count }, () => ({
+        x: Math.random() * innerWidth,
+        y: Math.random() * innerHeight,
+        z: Math.random() + .25,
+        r: Math.random() * 1.8 + .35,
+        vx: (Math.random() - .5) * .14,
+        vy: (Math.random() - .5) * .14
+      }));
+    }
+    function draw() {
+      ctx.clearRect(0, 0, innerWidth, innerHeight);
+      stars.forEach((s, i) => {
+        s.x += s.vx * s.z;
+        s.y += s.vy * s.z;
+        if (s.x < 0 || s.x > innerWidth) s.vx *= -1;
+        if (s.y < 0 || s.y > innerHeight) s.vy *= -1;
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r * s.z, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(226,246,255,${.2 + s.z * .38})`;
+        ctx.fill();
+        for (let n = i + 1; n < stars.length; n++) {
+          const o = stars[n];
+          const dx = s.x - o.x;
+          const dy = s.y - o.y;
+          const d = Math.sqrt(dx * dx + dy * dy);
+          if (d < 95) {
+            ctx.beginPath();
+            ctx.moveTo(s.x, s.y);
+            ctx.lineTo(o.x, o.y);
+            ctx.strokeStyle = `rgba(56,189,248,${(1 - d / 95) * .16})`;
+            ctx.stroke();
+          }
+        }
+      });
+      requestAnimationFrame(draw);
+    }
+    if (!reduceMotion) {
+      resizeCanvas();
+      draw();
+      addEventListener('resize', resizeCanvas, { passive: true });
+    }
+  </script>
+</body>
+</html>
