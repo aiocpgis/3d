@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Prompt History من Effects Lab: استعرض آخر البرومبتات التي تم توليدها محليًا، انسخها أو صدّرها." />
+  <meta name="theme-color" content="#050816" />
+  <title>Prompt History | Effects Lab</title>
+  <link rel="canonical" href="https://aiocpgis.github.io/3d/history.html" />
+  <meta property="og:title" content="Effects Lab | Prompt History" />
+  <meta property="og:description" content="تاريخ محلي للبرومبتات التي تم توليدها داخل AI Prompt Studio." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://aiocpgis.github.io/3d/history.html" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/prompt-tools.css" />
+</head>
+<body>
+  <canvas class="space-canvas" data-particles></canvas>
+  <div class="noise"></div>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="index.html"><span class="brand-mark">FX</span><span>Effects Lab<small>Prompt History</small></span></a>
+      <nav class="nav-links" aria-label="القائمة الرئيسية">
+        <a href="index.html">الرئيسية</a>
+        <a href="studio.html">AI Studio</a>
+        <a class="active" href="history.html">History</a>
+        <a href="favorites.html">المفضلة</a>
+        <a href="libraries.html">دليل المكتبات</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content">
+    <section class="catalog-hero reveal show">
+      <span class="eyebrow">🕘 Prompt History</span>
+      <h1>تاريخ البرومبتات المولدة</h1>
+      <p class="lead">هذه الصفحة تعرض آخر البرومبتات التي حفظها المتصفح محليًا. لا يوجد Backend ولا يتم إرسال هذه القائمة لأي قاعدة بيانات.</p>
+      <div class="hero-actions"><a class="btn primary" href="studio.html">افتح Studio</a><a class="btn ghost" href="favorites.html">المفضلة</a></div>
+    </section>
+    <section class="history-shell">
+      <div class="history-toolbar">
+        <input id="historySearch" type="search" placeholder="ابحث داخل History..." />
+        <button class="prompt-tool-btn success" id="exportHistoryJson">Export JSON</button>
+        <button class="prompt-tool-btn warn" id="clearHistory">Clear History</button>
+      </div>
+      <div id="historyGrid" class="history-grid"></div>
+    </section>
+  </main>
+  <footer class="footer">Effects Lab — Prompt History محلي داخل المتصفح.</footer>
+  <script src="assets/history.js"></script>
+</body>
+</html>
