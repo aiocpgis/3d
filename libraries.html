@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="دليل عربي شامل لمكتبات وإطارات عمل CSS و React و Vue و Angular و Svelte و Animation و 3D." />
-  <meta name="theme-color" content="#050816" />
+  <meta name="theme-color" content="#ffffff" />
   <title>دليل مكتبات الويب | Effects Lab</title>
   <link rel="canonical" href="https://aiocpgis.github.io/3d/libraries.html" />
   <meta property="og:title" content="دليل مكتبات الويب | Effects Lab" />
@@ -12,6 +12,8 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://aiocpgis.github.io/3d/libraries.html" />
   <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/pro-ui.css?v=20260608-sprint6-v1" />
+  <link rel="stylesheet" href="assets/pro-pages.css?v=20260608-sprint6-v1" />
   <link rel="stylesheet" href="assets/libraries.css" />
 </head>
 <body>
@@ -26,8 +28,8 @@
       </a>
       <nav class="nav-links" aria-label="القائمة الرئيسية">
         <a href="index.html">الرئيسية</a>
-        <a href="scroll.html">Scroll</a>
-        <a href="three-d.html">3D</a>
+        <a href="scroll.html">Effects</a>
+        <a href="studio.html">AI Studio</a>
         <a href="recommendations.html">التوصيات</a>
         <a class="active" href="libraries.html">دليل المكتبات</a>
       </nav>
@@ -42,48 +44,30 @@
       <div class="hero-actions">
         <a class="btn primary" href="#catalog">ابدأ البحث</a>
         <a class="btn ghost" href="recommendations.html">اختر حسب المشروع</a>
-        <a class="btn ghost" href="index.html">العودة للرئيسية</a>
+        <a class="btn ghost" href="studio.html">AI Studio</a>
       </div>
     </section>
 
-    <section class="catalog-panel" id="catalog">
+    <section class="catalog-panel library-shell" id="catalog">
       <div class="catalog-search reveal">
         <input id="librarySearch" type="search" placeholder="ابحث عن Tailwind, GSAP, Three.js, Shadcn, Vue..." autocomplete="off" />
         <div class="catalog-counter">المعروض: <span id="shownCount">0</span></div>
       </div>
 
       <div class="catalog-chips reveal" id="categoryChips"></div>
-
-      <div class="section-head reveal">
-        <div>
-          <span class="eyebrow">🗂️ التصنيفات</span>
-          <h2>اختصر الطريق حسب نوع المشروع</h2>
-        </div>
-        <p>اضغط على أي تصنيف لعرض المكتبات التابعة له فقط.</p>
-      </div>
-
+      <div class="section-head reveal"><div><span class="eyebrow">🗂️ التصنيفات</span><h2>اختصر الطريق حسب نوع المشروع</h2></div><p>اضغط على أي تصنيف لعرض المكتبات التابعة له فقط.</p></div>
       <div class="catalog-category-grid" id="categorySummary"></div>
-
-      <div class="section-head reveal">
-        <div>
-          <span class="eyebrow">📦 المكتبات</span>
-          <h2>كل الأسماء التي أرسلتها</h2>
-        </div>
-        <p>كل بطاقة تحتوي زر فتح صفحة المكتبة، زر نسخ الاسم، وزر فلترة نفس التصنيف.</p>
-      </div>
-
+      <div class="section-head reveal"><div><span class="eyebrow">📦 المكتبات</span><h2>كل الأسماء التي أرسلتها</h2></div><p>كل بطاقة تحتوي زر فتح صفحة المكتبة، زر نسخ الاسم، وزر فلترة نفس التصنيف.</p></div>
       <div class="empty-state" id="emptyState" hidden>لا توجد مكتبات مطابقة للبحث الحالي.</div>
       <div class="catalog-grid" id="librariesGrid"></div>
-
-      <div class="catalog-note">
-        تم إدخال كل المكتبات داخل الموقع كبيانات وصفحات تفاصيل. لم أحمّل ملفات CDN لكل مكتبة دفعة واحدة لأن ذلك سيجعل الموقع ثقيلًا جدًا وقد يكسر الأداء. التحميل الفعلي لأي مكتبة يجب أن يكون عند استخدامها في مشروع محدد فقط.
-      </div>
+      <div class="catalog-note">تم إدخال كل المكتبات داخل الموقع كبيانات وصفحات تفاصيل. التحميل الفعلي لأي مكتبة يجب أن يكون عند استخدامها في مشروع محدد فقط.</div>
     </section>
   </main>
 
   <footer class="footer">Effects Lab — مكتبة تأثيرات + دليل مكتبات Web UI.</footer>
-  <script src="assets/app.js"></script>
-  <script src="assets/library-data.js"></script>
-  <script src="assets/libraries.js"></script>
+  <script src="assets/app.js?v=20260608-sprint6-v1"></script>
+  <script src="assets/library-data.js?v=20260608-sprint6-v1"></script>
+  <script src="assets/libraries.js?v=20260608-sprint6-v1"></script>
+  <script src="assets/pro-search.js?v=20260608-sprint6-v1"></script>
 </body>
 </html>
