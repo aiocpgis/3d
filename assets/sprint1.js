@@ -1,8 +1,8 @@
 const FAVORITES_KEY='effects-lab-favorite-prompts-v1';
-const ASSET_VERSION='20260608-cloudflare-ai-v2';
+const ASSET_VERSION='20260608-gallery-modal-v1';
 function loadScriptOnce(src,marker,onload){if(document.querySelector(`[${marker}]`)){if(onload)onload();return}const script=document.createElement('script');script.src=src;script.defer=true;script.setAttribute(marker,'true');if(onload)script.onload=onload;document.body.appendChild(script)}
 function loadSprintCss(){if(document.querySelector('[data-sprint1-css]'))return;const link=document.createElement('link');link.rel='stylesheet';link.href=`assets/sprint1.css?v=${ASSET_VERSION}`;link.dataset.sprint1Css='true';document.head.appendChild(link)}
-function loadAiPromptAssets(){if(!document.getElementById('effectPage'))return;if(!document.querySelector('[data-ai-prompt-css]')){const link=document.createElement('link');link.rel='stylesheet';link.href=`assets/ai-prompt.css?v=${ASSET_VERSION}`;link.dataset.aiPromptCss='true';document.head.appendChild(link)}loadScriptOnce(`assets/ai-client.js?v=${ASSET_VERSION}`,'data-ai-client-js',()=>loadScriptOnce(`assets/ai-prompt.js?v=${ASSET_VERSION}`,'data-ai-prompt-js'))}
+function loadAiPromptAssets(){if(!document.getElementById('effectPage'))return;if(!document.querySelector('[data-ai-prompt-css]')){const link=document.createElement('link');link.rel='stylesheet';link.href=`assets/ai-prompt.css?v=${ASSET_VERSION}`;link.dataset.aiPromptCss='true';document.head.appendChild(link)}loadScriptOnce(`assets/ai-client.js?v=${ASSET_VERSION}`,'data-ai-client-js',()=>loadScriptOnce(`assets/ai-prompt.js?v=${ASSET_VERSION}`,'data-ai-prompt-js',()=>loadScriptOnce(`assets/gallery-modal.js?v=${ASSET_VERSION}`,'data-gallery-modal-js')))}
 function safeText(value){return String(value||'').toLowerCase().replace(/[\u064B-\u065F]/g,'').trim()}
 function readFavorites(){try{return JSON.parse(localStorage.getItem(FAVORITES_KEY)||'[]')}catch{return[]}}
 function writeFavorites(items){localStorage.setItem(FAVORITES_KEY,JSON.stringify(items))}
