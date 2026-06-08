@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="اختبار اتصال الذكاء الاصطناعي داخل Effects Lab لمعرفة هل Pollinations متاح من جهازك أم لا." />
+  <meta name="theme-color" content="#050816" />
+  <title>AI Health Check | Effects Lab</title>
+  <link rel="canonical" href="https://aiocpgis.github.io/3d/ai-health.html" />
+  <meta property="og:title" content="Effects Lab | AI Health Check" />
+  <meta property="og:description" content="اختبر اتصال Pollinations AI من نفس جهازك ومتصفحك." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://aiocpgis.github.io/3d/ai-health.html" />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/prompt-tools.css" />
+</head>
+<body>
+  <canvas class="space-canvas" data-particles></canvas>
+  <div class="noise"></div>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="brand" href="index.html"><span class="brand-mark">FX</span><span>Effects Lab<small>AI Health Check</small></span></a>
+      <nav class="nav-links">
+        <a href="index.html">الرئيسية</a>
+        <a href="studio.html">AI Studio</a>
+        <a class="active" href="ai-health.html">AI Health</a>
+        <a href="scroll.html">Scroll</a>
+        <a href="libraries.html">دليل المكتبات</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content">
+    <section class="catalog-hero reveal show">
+      <span class="eyebrow">🧪 AI Diagnostics</span>
+      <h1>اختبار اتصال الذكاء الاصطناعي</h1>
+      <p class="lead">هذه الصفحة تختبر Pollinations AI من نفس جهازك ومتصفحك. إذا فشل الاختبار، فالمشكلة من الشبكة أو الخدمة وليس من زر Generate.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#healthApp">ابدأ الاختبار</a>
+        <a class="btn ghost" href="studio.html">AI Studio</a>
+      </div>
+    </section>
+    <section class="compare-shell" id="healthApp">
+      <div class="compare-form">
+        <button class="prompt-tool-btn success" id="runHealthCheck">Test Pollinations Connection</button>
+        <button class="prompt-tool-btn" id="copyHealthReport">Copy Report</button>
+        <span class="prompt-tool-status" id="healthStatus">جاهز للاختبار.</span>
+      </div>
+      <article class="compare-result">
+        <h2>نتيجة الفحص</h2>
+        <pre id="healthOutput">اضغط Test Pollinations Connection لبدء الاختبار.</pre>
+      </article>
+      <article class="compare-result">
+        <h2>ماذا تعني النتيجة؟</h2>
+        <pre>✅ Connected: Pollinations متاح من جهازك.
+⚠️ POST failed ثم GET success: الاتصال يعمل لكن endpoint الأساسي غير مستقر.
+❌ Both failed: الشبكة أو المتصفح أو الخدمة تمنع الاتصال. الموقع سيستخدم Local Generated.</pre>
+      </article>
+    </section>
+  </main>
+  <footer class="footer">Effects Lab — AI connection diagnostics.</footer>
+  <script src="assets/ai-health.js?v=20260608-ai-health-v1"></script>
+</body>
+</html>
