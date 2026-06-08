@@ -33,31 +33,31 @@
     <section class="catalog-hero reveal show">
       <span class="eyebrow">🧪 AI Diagnostics</span>
       <h1>اختبار اتصال الذكاء الاصطناعي</h1>
-      <p class="lead">هذه الصفحة تختبر Pollinations AI من نفس جهازك ومتصفحك. إذا فشل الاختبار، فالمشكلة من الشبكة أو الخدمة وليس من زر Generate.</p>
+      <p class="lead">سيبدأ الاختبار تلقائيًا. انسخ النص من صندوق <strong>التقرير الفعلي</strong> فقط، وليس من صندوق شرح النتائج.</p>
       <div class="hero-actions">
-        <a class="btn primary" href="#healthApp">ابدأ الاختبار</a>
+        <a class="btn primary" href="#healthApp">مشاهدة التقرير</a>
         <a class="btn ghost" href="studio.html">AI Studio</a>
       </div>
     </section>
     <section class="compare-shell" id="healthApp">
       <div class="compare-form">
-        <button class="prompt-tool-btn success" id="runHealthCheck">Test Pollinations Connection</button>
-        <button class="prompt-tool-btn" id="copyHealthReport">Copy Report</button>
-        <span class="prompt-tool-status" id="healthStatus">جاهز للاختبار.</span>
+        <button class="prompt-tool-btn success" id="runHealthCheck">Re-test Pollinations</button>
+        <button class="prompt-tool-btn" id="copyHealthReport">Copy Actual Report</button>
+        <span class="prompt-tool-status" id="healthStatus">سيبدأ الاختبار تلقائيًا خلال لحظة.</span>
       </div>
       <article class="compare-result">
-        <h2>نتيجة الفحص</h2>
-        <pre id="healthOutput">اضغط Test Pollinations Connection لبدء الاختبار.</pre>
+        <h2>التقرير الفعلي — انسخ هذا النص</h2>
+        <pre id="healthOutput">جاري تجهيز الاختبار...</pre>
       </article>
       <article class="compare-result">
-        <h2>ماذا تعني النتيجة؟</h2>
-        <pre>✅ Connected: Pollinations متاح من جهازك.
+        <h2>شرح معاني النتائج — لا تنسخ هذا كأنه تقرير</h2>
+        <pre>✅ POST success أو GET success: يوجد اتصال بـ Pollinations.
 ⚠️ POST failed ثم GET success: الاتصال يعمل لكن endpoint الأساسي غير مستقر.
-❌ Both failed: الشبكة أو المتصفح أو الخدمة تمنع الاتصال. الموقع سيستخدم Local Generated.</pre>
+❌ POST failed و GET failed: الشبكة أو المتصفح أو الخدمة تمنع الاتصال. الموقع سيستخدم Local Generated.</pre>
       </article>
     </section>
   </main>
   <footer class="footer">Effects Lab — AI connection diagnostics.</footer>
-  <script src="assets/ai-health.js?v=20260608-ai-health-v1"></script>
+  <script src="assets/ai-health.js?v=20260608-ai-health-v2"></script>
 </body>
 </html>
