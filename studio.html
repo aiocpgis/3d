@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="AI Prompt Studio من Effects Lab: اصنع برومبت إنتاجي مخصص لأي مشروع Frontend مع تقييم الجودة والتحسين والتصدير والتاريخ." />
+  <meta name="description" content="AI Prompt Studio من Effects Lab: اصنع برومبت إنتاجي مخصص لأي مشروع Frontend باستخدام Cloudflare Workers AI مع تقييم الجودة والتحسين والتصدير والتاريخ." />
   <meta name="theme-color" content="#050816" />
   <title>AI Prompt Studio | Effects Lab</title>
   <link rel="canonical" href="https://aiocpgis.github.io/3d/studio.html" />
   <meta property="og:title" content="Effects Lab | AI Prompt Studio" />
-  <meta property="og:description" content="اصنع برومبت إنتاجي مخصص، قيّمه، حسّنه، صدّره، واحفظه في History محلي." />
+  <meta property="og:description" content="اصنع برومبت إنتاجي مخصص عبر Cloudflare Workers AI، قيّمه، حسّنه، صدّره، واحفظه في History محلي." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://aiocpgis.github.io/3d/studio.html" />
   <link rel="stylesheet" href="assets/styles.css" />
@@ -42,7 +42,7 @@
     <section class="catalog-hero reveal show">
       <span class="eyebrow">🧪 AI Prompt Studio</span>
       <h1>اصنع برومبت إنتاجي مخصص لأي مشروع</h1>
-      <p class="lead">اختر نوع المشروع والتأثير والمكتبة والأداة المستهدفة. عند وصول Pollinations إلى 429 سيتم استخدام Local fallback مع إيقاف مؤقت بدل تكرار الطلبات.</p>
+      <p class="lead">اختر نوع المشروع والتأثير والمكتبة والأداة المستهدفة. التوليد الآن عبر Cloudflare Workers AI، مع Local fallback إذا فشل المزود أو انتهت الحصة المجانية.</p>
       <div class="hero-actions">
         <a class="btn primary" href="#studioApp">ابدأ التوليد</a>
         <a class="btn ghost" href="ai-health.html">اختبر AI</a>
@@ -56,9 +56,10 @@
   </main>
 
   <footer class="footer">Effects Lab — AI Prompt Studio للمطورين.</footer>
-  <script src="assets/app.js?v=20260608-rate-limit-v2"></script>
-  <script src="assets/library-data.js?v=20260608-rate-limit-v2"></script>
-  <script src="assets/studio.js?v=20260608-rate-limit-v2"></script>
-  <script src="assets/prompt-tools.js?v=20260608-rate-limit-v2"></script>
+  <script src="assets/app.js?v=20260608-cloudflare-ai-v1"></script>
+  <script src="assets/library-data.js?v=20260608-cloudflare-ai-v1"></script>
+  <script src="assets/ai-client.js?v=20260608-cloudflare-ai-v1"></script>
+  <script src="assets/studio.js?v=20260608-cloudflare-ai-v1"></script>
+  <script src="assets/prompt-tools.js?v=20260608-cloudflare-ai-v1"></script>
 </body>
 </html>
