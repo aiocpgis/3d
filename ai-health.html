@@ -3,61 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="اختبار اتصال الذكاء الاصطناعي داخل Effects Lab لمعرفة هل Pollinations متاح من جهازك أم لا." />
-  <meta name="theme-color" content="#050816" />
+  <meta name="description" content="اختبار اتصال Cloudflare Workers AI داخل Effects Lab للتأكد من جاهزية التوليد." />
+  <meta name="theme-color" content="#ffffff" />
   <title>AI Health Check | Effects Lab</title>
   <link rel="canonical" href="https://aiocpgis.github.io/3d/ai-health.html" />
   <meta property="og:title" content="Effects Lab | AI Health Check" />
-  <meta property="og:description" content="اختبر اتصال Pollinations AI من نفس جهازك ومتصفحك." />
+  <meta property="og:description" content="اختبر اتصال Cloudflare Workers AI من نفس جهازك ومتصفحك." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://aiocpgis.github.io/3d/ai-health.html" />
   <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/pro-ui.css?v=20260608-sprint6-v1" />
+  <link rel="stylesheet" href="assets/pro-pages.css?v=20260608-sprint6-v1" />
   <link rel="stylesheet" href="assets/prompt-tools.css" />
 </head>
 <body>
   <canvas class="space-canvas" data-particles></canvas>
   <div class="noise"></div>
-  <header class="site-header">
-    <div class="nav-wrap">
-      <a class="brand" href="index.html"><span class="brand-mark">FX</span><span>Effects Lab<small>AI Health Check</small></span></a>
-      <nav class="nav-links">
-        <a href="index.html">الرئيسية</a>
-        <a href="studio.html">AI Studio</a>
-        <a class="active" href="ai-health.html">AI Health</a>
-        <a href="scroll.html">Scroll</a>
-        <a href="libraries.html">دليل المكتبات</a>
-      </nav>
-    </div>
-  </header>
-  <main id="main-content">
-    <section class="catalog-hero reveal show">
-      <span class="eyebrow">🧪 AI Diagnostics</span>
-      <h1>اختبار اتصال الذكاء الاصطناعي</h1>
-      <p class="lead">سيبدأ الاختبار تلقائيًا. انسخ النص من صندوق <strong>التقرير الفعلي</strong> فقط، وليس من صندوق شرح النتائج.</p>
-      <div class="hero-actions">
-        <a class="btn primary" href="#healthApp">مشاهدة التقرير</a>
-        <a class="btn ghost" href="studio.html">AI Studio</a>
-      </div>
-    </section>
-    <section class="compare-shell" id="healthApp">
-      <div class="compare-form">
-        <button class="prompt-tool-btn success" id="runHealthCheck">Re-test Pollinations</button>
-        <button class="prompt-tool-btn" id="copyHealthReport">Copy Actual Report</button>
-        <span class="prompt-tool-status" id="healthStatus">سيبدأ الاختبار تلقائيًا خلال لحظة.</span>
-      </div>
-      <article class="compare-result">
-        <h2>التقرير الفعلي — انسخ هذا النص</h2>
-        <pre id="healthOutput">جاري تجهيز الاختبار...</pre>
-      </article>
-      <article class="compare-result">
-        <h2>شرح معاني النتائج — لا تنسخ هذا كأنه تقرير</h2>
-        <pre>✅ POST success أو GET success: يوجد اتصال بـ Pollinations.
-⚠️ POST failed ثم GET success: الاتصال يعمل لكن endpoint الأساسي غير مستقر.
-❌ POST failed و GET failed: الشبكة أو المتصفح أو الخدمة تمنع الاتصال. الموقع سيستخدم Local Generated.</pre>
-      </article>
-    </section>
-  </main>
+  <header class="site-header"><div class="nav-wrap"><a class="brand" href="index.html"><span class="brand-mark">FX</span><span>Effects Lab<small>AI Health Check</small></span></a><nav class="nav-links"><a href="index.html">الرئيسية</a><a href="studio.html">AI Studio</a><a class="active" href="ai-health.html">AI Health</a><a href="scroll.html">Effects</a><a href="libraries.html">دليل المكتبات</a></nav></div></header>
+  <main id="main-content"><section class="catalog-hero reveal show"><span class="eyebrow">🧪 AI Diagnostics</span><h1>اختبار اتصال Cloudflare AI</h1><p class="lead">سيبدأ الاختبار تلقائيًا ويتأكد من أن Cloudflare Worker يستجيب ويولّد النصوص بنجاح.</p><div class="hero-actions"><a class="btn primary" href="#healthApp">مشاهدة التقرير</a><a class="btn ghost" href="studio.html">AI Studio</a></div></section><section class="compare-shell" id="healthApp"><div class="compare-form"><button class="prompt-tool-btn success" id="runHealthCheck">Re-test Cloudflare AI</button><button class="prompt-tool-btn" id="copyHealthReport">Copy Actual Report</button><span class="prompt-tool-status" id="healthStatus">سيبدأ الاختبار تلقائيًا خلال لحظة.</span></div><article class="compare-result"><h2>التقرير الفعلي</h2><pre id="healthOutput">جاري تجهيز الاختبار...</pre></article><article class="compare-result"><h2>شرح النتائج</h2><pre>✅ Worker GET success: رابط Worker يعمل.
+✅ Worker POST success: التوليد يعمل عبر Cloudflare Workers AI.
+❌ Worker failed: الموقع سيستخدم Local Generated مؤقتًا.</pre></article></section></main>
   <footer class="footer">Effects Lab — AI connection diagnostics.</footer>
-  <script src="assets/ai-health.js?v=20260608-ai-health-v2"></script>
+  <script src="assets/app.js?v=20260608-sprint6-v1"></script>
+  <script src="assets/library-data.js?v=20260608-sprint6-v1"></script>
+  <script src="assets/ai-health.js?v=20260608-sprint6-v1"></script>
+  <script src="assets/pro-search.js?v=20260608-sprint6-v1"></script>
 </body>
 </html>
