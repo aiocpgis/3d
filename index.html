@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="منصة عربية مرجعية للمطورين تجمع AI Prompt Studio وبرومبتات تأثيرات الويب ودليل مكتبات UI/CSS/Animation/3D وتوصيات ومقارنات وحزم برومبتات." />
-  <meta name="theme-color" content="#050816" />
-  <title>Effects Lab | منصة برومبتات ومكتبات ويب للمطورين</title>
+  <meta name="description" content="Effects Lab منصة عربية مرجعية للمطورين تجمع برومبتات تأثيرات الويب وAI Prompt Studio ودليل مكتبات UI/CSS/Animation/3D مع بحث عالمي وتجربة احترافية." />
+  <meta name="theme-color" content="#ffffff" />
+  <title>Effects Lab | AI Prompt Platform for Web Developers</title>
   <link rel="canonical" href="https://aiocpgis.github.io/3d/" />
-  <meta property="og:title" content="Effects Lab | منصة برومبتات ومكتبات ويب للمطورين" />
-  <meta property="og:description" content="AI Prompt Studio و160 برومبت تأثير و226 مكتبة UI وتوصيات ومقارنات وحزم برومبتات للمطورين." />
+  <meta property="og:title" content="Effects Lab | AI Prompt Platform for Web Developers" />
+  <meta property="og:description" content="ابحث في تأثيرات ومكتبات وبرومبتات الويب، وافتح AI Studio لتوليد برومبتات إنتاجية للمطورين." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://aiocpgis.github.io/3d/" />
   <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/pro-ui.css?v=20260608-sprint5-v1" />
 </head>
 <body>
   <canvas class="space-canvas" data-particles></canvas>
@@ -21,63 +22,70 @@
     <div class="nav-wrap">
       <a class="brand" href="index.html" aria-label="العودة للرئيسية">
         <span class="brand-mark">FX</span>
-        <span>Effects Lab<small>Prompt Library للمطورين</small></span>
+        <span>Effects Lab<small>Prompt Platform</small></span>
       </a>
       <nav class="nav-links" data-nav aria-label="القائمة الرئيسية"></nav>
     </div>
   </header>
 
   <main id="main-content">
-    <section class="hero">
-      <div class="hero-grid">
-        <div class="reveal">
-          <span class="eyebrow">⚡ AI Studio / Scoring / Compare / Packs</span>
-          <h1>منصة مرجعية تجمع <span class="gradient-text">برومبتات ومكتبات ويب للمطورين</span></h1>
-          <p class="lead">بدل نسخ كود جامد، استخدم AI Prompt Studio وبرومبتات احترافية مع تقييم جودة، تحسين بالذكاء الاصطناعي، تاريخ محلي، تصدير، مقارنات مكتبات، وحزم برومبتات حسب نوع المشروع.</p>
-          <div class="hero-actions">
-            <a class="btn primary" href="studio.html">افتح AI Prompt Studio</a>
-            <a class="btn ghost" href="ai-health.html">اختبر AI</a>
-            <a class="btn ghost" href="compare.html">قارن مكتبتين</a>
-            <a class="btn ghost" href="packs.html">Prompt Packs</a>
-            <a class="btn ghost" href="history.html">History</a>
-            <a class="btn ghost" href="recommendations.html">التوصيات</a>
-            <a class="btn ghost" href="libraries.html">دليل المكتبات</a>
-          </div>
-          <div class="stats">
-            <div class="stat"><strong data-page-count>10</strong><span>صفحات برومبتات</span></div>
-            <div class="stat"><strong data-total-effects>160</strong><span>برومبت تأثير احترافي</span></div>
-            <div class="stat"><strong>226</strong><span>مكتبة مصنفة</span></div>
-          </div>
-        </div>
-        <div class="showcase reveal" aria-hidden="true">
-          <div class="floating-card one fx-tilt"><div class="orb"></div><h3>AI Studio</h3><p>Score, Improve, Export</p></div>
-          <div class="floating-card two fx-tilt"><h3>AI Health</h3><p>Pollinations diagnostics</p><div class="loader-bars"><span></span><span></span><span></span><span></span></div></div>
-          <div class="floating-card three fx-tilt"><h3>Prompt History</h3><p>localStorage only</p></div>
-        </div>
+    <section class="pro-hero reveal show">
+      <span class="pro-kicker">⚡ Cloudflare AI · Prompt Studio · Effects Gallery</span>
+      <h1>منصة برومبتات وتأثيرات ويب للمطورين</h1>
+      <p>ابحث في التأثيرات والمكتبات، افتح البرومبت داخل Modal نظيف، جرّب الحركة بزر Animate، وولّد برومبتات احترافية عبر Cloudflare Workers AI.</p>
+      <form class="pro-search" data-pro-hero-search>
+        <input type="search" placeholder="ابحث عن Scroll Reveal، GSAP، Three.js، Buttons..." aria-label="البحث في Effects Lab" />
+        <button type="submit">Search</button>
+      </form>
+      <div class="pro-actions">
+        <a class="primary" href="studio.html">Generate Prompt</a>
+        <a href="scroll.html">Browse Effects</a>
+        <a href="libraries.html">Libraries</a>
+        <a href="compare.html">Compare</a>
+        <a href="packs.html">Packs</a>
+      </div>
+      <div class="pro-strip">
+        <div class="pro-stat"><strong data-page-count>10</strong><span>Effect categories</span></div>
+        <div class="pro-stat"><strong data-total-effects>160</strong><span>Prompt effects</span></div>
+        <div class="pro-stat"><strong>226</strong><span>Libraries indexed</span></div>
       </div>
     </section>
 
-    <section class="section reveal"><div class="section-head"><div><span class="eyebrow">🧪 AI Health</span><h2>اختبر اتصال الذكاء الاصطناعي</h2></div><p>افحص Pollinations من نفس جهازك قبل الحكم على زر Generate with AI.</p></div><a class="library-card prompt-link" href="ai-health.html" style="display:block;min-height:170px"><div class="icon">🧪</div><h3>افتح AI Health Check</h3><p>صفحة تشخيص توضّح هل المشكلة من الاتصال أو من خدمة Pollinations أو من المتصفح.</p><span class="badge">اختبار AI ←</span></a></section>
+    <section class="pro-section reveal show">
+      <div class="pro-section-head">
+        <div><h2>ابدأ من هنا</h2><p>أهم أدوات المنصة في واجهة واحدة.</p></div>
+      </div>
+      <div class="pro-card-grid">
+        <a class="pro-card" href="studio.html"><div class="icon">🧪</div><h3>AI Prompt Studio</h3><p>اصنع، قيّم، حسّن، صدّر، واحفظ برومبتات إنتاجية لأي مشروع Frontend.</p><b>Open Studio →</b></a>
+        <a class="pro-card" href="compare.html"><div class="icon">⚖️</div><h3>Compare Libraries</h3><p>قارن مكتبتين حسب نوع المشروع واحصل على قرار عملي وبرومبت تنفيذ.</p><b>Compare now →</b></a>
+        <a class="pro-card" href="recommendations.html"><div class="icon">🧭</div><h3>Project Recommendations</h3><p>اختر نوع المشروع واحصل على Stack ومكتبات وبرومبت مناسب.</p><b>Get recommendations →</b></a>
+      </div>
+    </section>
 
-    <section class="section reveal"><div class="section-head"><div><span class="eyebrow">🧪 AI Prompt Studio</span><h2>اصنع، قيّم، حسّن، وصدّر البرومبت</h2></div><p>Studio أصبح يحتوي Prompt Quality Scoring وImprove Prompt وExport وHistory محلي.</p></div><a class="library-card prompt-link" href="studio.html" style="display:block;min-height:170px"><div class="icon">🧪</div><h3>افتح AI Prompt Studio</h3><p>صفحة واحدة لصناعة برومبت إنتاجي مخصص لأي مشروع Frontend أو UI، مع أدوات تقييم وتحسين وتصدير.</p><span class="badge">Studio ←</span></a></section>
+    <section class="pro-section reveal show">
+      <div class="pro-section-head">
+        <div><h2>أقسام التأثيرات</h2><p>كل بطاقة تعرض Preview فقط، والتفاصيل داخل Modal.</p></div>
+        <a class="btn ghost" href="scroll.html">ابدأ بـ Scroll</a>
+      </div>
+      <div class="library-grid" data-library-grid></div>
+    </section>
 
-    <section class="section reveal"><div class="section-head"><div><span class="eyebrow">⚖️ Compare</span><h2>قارن مكتبتين قبل الاختيار</h2></div><p>اختر مكتبتين ونوع المشروع ليولد AI مقارنة عملية وقرارًا واضحًا.</p></div><a class="library-card prompt-link" href="compare.html" style="display:block;min-height:170px"><div class="icon">⚖️</div><h3>افتح AI Library Compare</h3><p>قارن Tailwind مع Bootstrap أو GSAP مع Anime.js أو Three.js مع Babylon.js حسب مشروعك.</p><span class="badge">المقارنة ←</span></a></section>
-
-    <section class="section reveal"><div class="section-head"><div><span class="eyebrow">📚 Packs</span><h2>حزم برومبتات جاهزة</h2></div><p>Portfolio Pack، SaaS Pack، GIS Dashboard Pack، Landing Page Pack، Animation Pack، 3D Pack، وDocs Pack.</p></div><a class="library-card prompt-link" href="packs.html" style="display:block;min-height:170px"><div class="icon">📚</div><h3>افتح Prompt Packs</h3><p>حزم جاهزة تجمع مكتبات وتأثيرات وبرومبتات مناسبة حسب هدف المشروع.</p><span class="badge">Packs ←</span></a></section>
-
-    <section class="section reveal"><div class="section-head"><div><span class="eyebrow">🕘 History</span><h2>تاريخ البرومبتات</h2></div><p>استعرض آخر البرومبتات التي ولّدتها أو حسّنتها، وانسخها أو صدّرها.</p></div><a class="library-card prompt-link" href="history.html" style="display:block;min-height:170px"><div class="icon">🕘</div><h3>افتح Prompt History</h3><p>History محلي باستخدام localStorage فقط، بدون Backend أو Database أو تسجيل دخول.</p><span class="badge">History ←</span></a></section>
-
-    <section class="section reveal"><div class="section-head"><div><span class="eyebrow">🧭 Sprint 2</span><h2>توصيات حسب نوع المشروع</h2></div><p>اختر Portfolio أو Dashboard أو SaaS أو GIS أو Animation أو 3D لتحصل على Stack مقترح وبرومبت مشروع جاهز.</p></div><a class="library-card prompt-link" href="recommendations.html" style="display:block;min-height:170px"><div class="icon">🧭</div><h3>افتح توصيات المشاريع</h3><p>صفحة تساعدك تختار المكتبات وصفحات البرومبتات المناسبة حسب نوع المشروع، بدون Backend أو تسجيل دخول.</p><span class="badge">التوصيات ←</span></a></section>
-
-    <section class="section reveal"><div class="section-head"><div><span class="eyebrow">⭐ Sprint 1</span><h2>مفضلة محلية</h2></div><p>احفظ البرومبتات المهمة على جهازك بدون تسجيل دخول.</p></div><a class="library-card prompt-link" href="favorites.html" style="display:block;min-height:170px"><div class="icon">⭐</div><h3>افتح البرومبتات المحفوظة</h3><p>صفحة مفضلة محلية تحفظ اختياراتك باستخدام localStorage فقط.</p><span class="badge">المفضلة ←</span></a></section>
-
-    <section class="section reveal"><div class="section-head"><div><span class="eyebrow">🧠 دليل المكتبات</span><h2>226 مكتبة وإطار عمل في صفحة واحدة</h2></div><p>بحث وفلترة حسب التصنيف: CSS، React، Vue، Angular، Svelte، Animation، 3D، وRetro Themes.</p></div><a class="library-card prompt-link" href="libraries.html" style="display:block;min-height:170px"><div class="icon">📦</div><h3>افتح دليل مكتبات الويب</h3><p>صفحة مخصصة لكل المكتبات التي أرسلتها، مع بحث فوري، فلاتر، وتصنيفات منظمة، وصفحة تفاصيل لكل مكتبة.</p><span class="badge">226 مكتبة ←</span></a></section>
-
-    <section class="section" id="libraries"><div class="section-head reveal"><div><span class="eyebrow">📚 صفحات البرومبتات</span><h2>اختر نوع التأثير</h2></div><p>كل صفحة تحتوي على 16 تأثيرًا، وكل تأثير يحتوي 4 أنواع برومبت: Build، Integrate، React/Tailwind، Optimize.</p></div><div class="library-grid" data-library-grid></div></section>
+    <section class="pro-section reveal show">
+      <div class="pro-section-head">
+        <div><h2>موارد المطور</h2><p>دليل مكتبات، حزم جاهزة، تاريخ محلي، وفحص AI.</p></div>
+      </div>
+      <div class="pro-card-grid">
+        <a class="pro-card" href="libraries.html"><div class="icon">📦</div><h3>Library Directory</h3><p>دليل شامل لمكتبات CSS وReact وVue وAnimation و3D وRetro.</p><b>Explore libraries →</b></a>
+        <a class="pro-card" href="packs.html"><div class="icon">📚</div><h3>Prompt Packs</h3><p>حزم برومبتات جاهزة حسب نوع المشروع: Portfolio، SaaS، GIS، 3D.</p><b>Open packs →</b></a>
+        <a class="pro-card" href="ai-health.html"><div class="icon">🩺</div><h3>AI Health</h3><p>اختبر اتصال Cloudflare Workers AI وتأكد أن التوليد يعمل.</p><b>Run diagnostics →</b></a>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">Effects Lab — منصة عربية لبرومبتات تأثيرات الويب ودليل مكتبات الواجهات.</footer>
-  <script src="assets/app.js?v=20260608-ai-health-v1"></script>
-  <script src="assets/sprint1.js?v=20260608-ai-health-v1"></script>
+  <script src="assets/library-data.js?v=20260608-sprint5-v1"></script>
+  <script src="assets/app.js?v=20260608-sprint5-v1"></script>
+  <script src="assets/sprint1.js?v=20260608-sprint5-v1"></script>
+  <script src="assets/pro-search.js?v=20260608-sprint5-v1"></script>
 </body>
 </html>
