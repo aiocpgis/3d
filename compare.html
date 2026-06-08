@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="قارن مكتبتين من مكتبات الويب باستخدام Cloudflare Workers AI مع Local fallback داخل Effects Lab." />
-  <meta name="theme-color" content="#050816" />
+  <meta name="theme-color" content="#ffffff" />
   <title>Compare Libraries with AI | Effects Lab</title>
   <link rel="canonical" href="https://aiocpgis.github.io/3d/compare.html" />
   <meta property="og:title" content="Effects Lab | Compare Libraries with AI" />
@@ -12,6 +12,8 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://aiocpgis.github.io/3d/compare.html" />
   <link rel="stylesheet" href="assets/styles.css" />
+  <link rel="stylesheet" href="assets/pro-ui.css?v=20260608-sprint6-v1" />
+  <link rel="stylesheet" href="assets/pro-pages.css?v=20260608-sprint6-v1" />
   <link rel="stylesheet" href="assets/prompt-tools.css" />
 </head>
 <body>
@@ -23,8 +25,10 @@
     <section class="compare-shell" id="compareApp"><div class="compare-form"><div class="compare-grid"><label>المكتبة الأولى<select id="compareA"></select></label><label>المكتبة الثانية<select id="compareB"></select></label><label>نوع المشروع<select id="compareProject"><option>Landing Page</option><option>Dashboard</option><option>SaaS App</option><option>GIS Dashboard</option><option>Portfolio</option><option>3D Website</option><option>Animation Website</option><option>Blog / Docs</option></select></label><label>الأداة المستهدفة<select id="compareTarget"><option>ChatGPT</option><option>Cursor</option><option>Claude</option><option>v0</option><option>Bolt</option><option>Lovable</option></select></label><textarea id="compareContext" placeholder="سياق اختياري: حجم المشروع، مستوى الفريق، هل تريد React/Next.js، قيود الأداء..."></textarea></div><button class="prompt-tool-btn success" id="generateComparison">Generate AI Comparison</button><button class="prompt-tool-btn" id="localComparison">Build Local Comparison Prompt</button><button class="prompt-tool-btn" id="copyComparison">Copy Result</button><span class="prompt-tool-status" id="compareStatus">جاهز.</span></div><article class="compare-result"><h2>الناتج</h2><pre id="compareOutput">اختر مكتبتين ثم اضغط Generate AI Comparison.</pre></article></section>
   </main>
   <footer class="footer">Effects Lab — AI Library Comparison.</footer>
-  <script src="assets/library-data.js?v=20260608-cloudflare-ai-v2"></script>
-  <script src="assets/ai-client.js?v=20260608-cloudflare-ai-v2"></script>
-  <script src="assets/compare.js?v=20260608-cloudflare-ai-v2"></script>
+  <script src="assets/app.js?v=20260608-sprint6-v1"></script>
+  <script src="assets/library-data.js?v=20260608-sprint6-v1"></script>
+  <script src="assets/ai-client.js?v=20260608-sprint6-v1"></script>
+  <script src="assets/compare.js?v=20260608-sprint6-v1"></script>
+  <script src="assets/pro-search.js?v=20260608-sprint6-v1"></script>
 </body>
 </html>
